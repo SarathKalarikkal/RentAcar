@@ -1,0 +1,169 @@
+.myrentals-header{
+   background:  linear-gradient(180deg,
+   rgba(0, 0, 0, 0.284),
+   rgba(0, 0, 0, 0.699)), 
+     url(
+ ../../../assets/manage-car.jpg);
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+ }
+ .myrentals-header h1{
+    color: white;
+ }
+
+
+
+ .rental-img {
+   padding: 20px;
+   background-color: var(--secondary-color);
+   border-radius: 5px;
+ }
+.rental-img img{
+   width: 100%;
+   object-fit: cover;
+}
+
+ .reserved-car{
+   padding: 40px 0;
+ }
+
+ .rental-card{
+   border-radius: 5px;
+ }
+ .rent-card-long{
+   box-shadow: var(--box-shadow);
+ }
+ .rental-card-right{
+   background-color: var(--secondary-color);
+   padding: 30px;
+   position: relative;
+   height: 300px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   border-radius: 5px;
+ }
+ .rental-card-right h3{
+   color: var(--text-color);
+ }
+ .rental-status{
+   position: absolute;
+   right: 30px;
+   top: 55px;
+   display: flex;
+   gap: 5px;
+ }
+ .rental-status p{
+   margin: 0;
+   color: grey;
+ }
+ .rental-status span{
+   background-color: rgb(255, 245, 227);
+   color: rgb(212, 104, 3);
+   padding: 1px 10px;
+   border-radius: 5px;
+   font-size: 14px;
+ }
+ .reserved-car p{
+   margin: 0;
+ }
+.rented-box{
+   display: flex;
+   flex-direction: column;
+   margin-top: 10px;
+   
+}
+.rented-box label{
+   color: grey;
+}
+.rented-box span{
+   font-weight: 600;
+   color: var(--text-color);
+}
+
+
+
+.rental-btn{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+   }
+
+.rented-box-below{
+   display: flex;
+   width: 100%;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 20px;
+}
+.updated-status{
+   color: grey;
+   font-size: 14px;
+}
+.cancel-reservation{
+   border: 0;
+   outline: 0;
+   color: rgb(200, 2, 2);
+   border: 1px solid rgb(200, 2, 2);
+   font-weight: 600;
+   padding: 5px 10px;
+   border-radius: 5px;
+   width: 100px;
+   background-color: transparent;
+}
+.pay-reservation{
+   border: 0;
+   outline: 0;
+   color: rgb(7, 169, 26);
+   border: 1px solid rgb(40, 187, 7);
+   font-weight: 600;
+   padding: 5px 10px;
+   border-radius: 5px;
+   width: 100px;
+   background-color: transparent;
+}
+.return{
+   border: 0;
+   outline: 0;
+   color: rgb(252, 134, 0);
+   border: 1px solid rgb(252, 134, 0);
+   font-weight: 600;
+   padding: 5px 10px;
+   border-radius: 5px;
+   width: 100px;
+   background-color: transparent;
+}
+.edit-reservation{
+   border: 0;
+   outline: 0;
+   color: black;
+   background-color: var(--brand-color);
+   font-weight: 600;
+   padding: 5px 10px;
+   border-radius: 5px;
+   width: 100px;
+}
+
+
+@media screen and (max-width:768px){
+   .rented-box-below {
+      display: flex;
+      margin-bottom: 20px;
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+  }
+  .rental-card-right, .rental-img  {
+   padding: 10px;
+  }
+  .rental-status {
+   position: absolute;
+   right: 9px;
+   top: 25px;
+   display: flex;
+   gap: 5px;
+}
+}

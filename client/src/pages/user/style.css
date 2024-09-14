@@ -1,0 +1,56 @@
+/* PaymentSuccess.css */
+.payment-success-page {
+    height: 100vh;
+    background-color: var(--secondory-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+.cancel-page {
+    height: 100vh;
+    background-color: var(--secondory-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .checkmark-wrapper, .crossmarker-wrapper {
+    position: relative;
+    margin-bottom: 60px;
+  }
+  
+.checkmark-wrapper::after{
+    content: '✅';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s;
+    animation: scale 1s forwards;
+    font-size: 5px;
+}
+.crossmarker-wrapper::after{
+    content: '❌';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s;
+    animation: scale 1s forwards;
+    font-size: 5px;
+}
+@keyframes scale{
+    0%{
+        font-size: 10px;
+    }
+    100%{
+        font-size: 50px;
+    }
+}
+  
+
+  

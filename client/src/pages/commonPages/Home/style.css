@@ -1,0 +1,188 @@
+.carousel-item{
+    position: relative;
+}
+.hero-content{
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 16%;
+    transform: translateY(-50%);
+    color: white;
+}
+.hero-content button{
+    background-image: linear-gradient(to right, #F7971E 0%, #FFD200 51%, #F7971E);
+    transition: 0.5s;
+    background-size: 200% auto;
+    padding: 10px 30px;
+    border-radius: 3px;
+    font-weight: 600;
+    border: 0;
+    font-weight: 700;
+    color: white;
+    outline: 0;
+}
+.hero-content button:hover{
+    background-position: right center;
+}
+.hero-content h1{
+    font-weight: 800;
+    margin: 0;
+    font-size: 25px;
+}
+.hero-content h4{
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.latest-offers,.new-arrivals{
+    padding: 40px 0;
+} 
+
+.latest-head, .new-arrivals-head{
+    text-align: center;
+    color: var(--text-color);
+}
+
+.latest-head hr, .new-arrivals-head hr{
+    width: 20%;
+    margin: 0 auto;
+    height: 3px;
+    background-color: var(--text-color);
+    opacity: 1;
+}
+
+
+
+.newsletter {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.633)), 
+                url('../../../assets/newsletter-img.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    text-align: center;
+}
+.newsletter p , .newsletter h2{
+   color: white;
+}
+.newsletter form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+.newsletter form input{
+    padding: 10px 15px;
+    border: 0;
+    outline: 0;
+    width: 50%;
+}
+.newsletter form button{
+    border: 0;
+    /* width: 10%; */
+    outline: 0;
+    padding: 10px 15px;
+    color: black;
+    font-weight: 600;
+    background-color: var(--brand-color);
+}
+
+
+
+
+
+
+
+.how-it-works{
+    background-color: var(--how-it-works);
+    padding: 100px 0 60px 0;
+}
+.how-it-works img{
+    width: 80%;
+    transform: scaleX(-1);
+}
+.how-it-works h3{
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+.work-box{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.work-box .work-top{
+    display: flex;
+    align-items: end;
+}
+.work-box .work-top h2{
+    color: var(--brand-color);
+    font-weight: 700;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+ .work-box .work-top p{
+    margin: 0;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-color);
+}
+.work-box p{
+    color: var(--text-color);
+}
+
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: -37px;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-right: 15%;
+    margin-bottom: 1rem;
+    margin-left: 15%;
+    list-style: none;
+}
+
+
+
+@media screen and (min-width: 1200px) {
+    .filter-sec{
+        position: relative;
+        top: -50px;
+        z-index: 99;
+    }
+}
+@media screen and (min-width: 768px) {
+    .hero-content h1{
+        font-size: 60px;
+        font-weight: 800;
+        margin: 0;
+        line-height: 70px;
+    }
+    .hero-content h4{
+        font-size: 25px;
+    }
+   
+}
+@media screen and (max-width: 564px) {
+    .hero-content button {
+        padding: 3px 8px;
+        font-size: 10px;
+    }
+    .newsletter form input{
+        width: 100%;
+    }
+    .newsletter form button {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .nav-item{
+        margin-top: 10px;
+    }
+}

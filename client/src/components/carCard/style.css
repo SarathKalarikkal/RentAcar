@@ -1,0 +1,125 @@
+a{
+    text-decoration: none!important;
+}
+.car-box{
+    position: relative;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    background-color: var(--secondary-color);
+}
+.car-box hr{
+    background-color: var(--text-color);
+}
+.car-box img{
+    width: 100%;
+}
+.car-box .mid{
+    position: relative;
+}
+.car-box .mid img{
+   width: 100%;
+   object-fit: cover;
+   aspect-ratio:1 ;
+   height: 250px;
+}
+.car-box .mid span{
+    position: absolute;
+    top: 15px;
+    left:15px;
+}
+.car-box .top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding:10px 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+.top-left{
+    display: flex;
+    gap: 10px;
+}
+.rating{
+    background: var(--rating-color);
+    color: var(--text-color);
+    border-radius: 3px;
+    padding: 2px 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.rating i{
+    color: #ffc003;
+}
+.available{
+    padding: 2px 15px;
+    background: var(--available-color);
+    color: var(--available-text-color);
+    border-radius: 3px;
+    font-size: 14px;
+}
+.not-available{
+    padding: 2px 15px;
+    background: var(--Not-available-color);
+    color: var(--Not-available-text-color);
+    border-radius: 3px;
+    font-size: 14px;
+}
+.heart{
+    color: red;
+}
+
+
+.bottom{
+    padding:10px 30px 30px 30px;
+}
+.bottom .model{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.model div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.model span{
+    color: #818588;
+    font-size: 14px;
+}
+.model div p{
+    margin-bottom: 0;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.rate span{
+  color: grey;
+  font-weight: 400;
+}
+.deatail{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.model-type{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color);
+}
+.model-type img{
+    width:20px ;
+}
+
+@media screen and (max-width:768px){
+    .bottom {
+        padding: 10px 8px 10px 8px;
+    }
+}

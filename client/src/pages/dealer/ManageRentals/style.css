@@ -1,0 +1,176 @@
+.manageRental-header{
+    background:  linear-gradient(180deg,
+    rgba(0, 0, 0, 0.607),
+    rgba(0, 0, 0, 0.699)), 
+      url(
+  ../../../assets/manage-car.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+}
+.manageRental-header h1{
+  color: white;
+  margin: 0;
+}
+
+.rent-card{
+  box-shadow: var(--box-shadow);
+  padding: 15px;
+}
+.rent-card{
+  display: flex;
+}
+.rent-left{
+  width: 40%;
+}
+.rent-right{
+  width: 60%;
+  padding: 20px;
+  position: relative;
+}
+.rent-right h3{
+  color: var(--text-color);
+}
+.rent-right p{
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: grey;
+}
+.rent-right p span{
+  font-weight: 600;
+  color: var(--text-color);
+}
+.rent-right .rent-btns{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.detail-sec button{
+  border: 0;
+  outline: 0;
+  padding: 2px 10px;
+  width: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.approve{
+   border: 1px solid green!important;
+   color: green;
+   background: none;
+   margin-right: 10px;
+}
+.rent-btns .approve:hover{
+  background-color: green;
+  color: white;
+}
+.rent-btns button.reject{
+  border: 1px solid rgb(255, 17, 0)!important;
+  color: rgb(235, 0, 0);
+  background: none;
+}
+.rent-btns .reject:hover{
+  background-color: rgb(235, 0, 0);
+  color: white;
+}
+
+.re-status-pending{
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  color: rgb(255, 196, 0);
+  font-size: 14px;
+}
+.re-status-confirmed{
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  color: rgb(38, 163, 4);
+  font-size: 14px;
+}
+
+.view-btn{
+  background: var(--brand-color);
+  color: white;
+  margin-top: 5px;
+}
+.rent-card{
+  cursor: pointer;
+  transition: 0.3s;
+}
+.rent-card:hover{
+  transform: translateY(-5px);
+  border: 1px solid var(--brand-color);
+}
+
+
+.manage-reservation-form-modal{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.464);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.manage-reservation-form-modal .manage-card-box{
+  background: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  position: relative;
+  width: 500px;
+  
+}
+.close-btn{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 0;
+  outline: 0;
+  background: 0;
+  font-size: 20px;
+  color: var(--brand-color);
+  cursor: pointer;
+}
+.close-btn i{
+  cursor: pointer;
+}
+.manage-reservation-form-modal .img-sec{
+  width: 100%;
+  height: 200px;
+  background-color: grey;
+}
+.manage-reservation-form-modal .img-sec img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.manage-reservation-form-modal .detail-sec{
+  padding: 20px;
+}
+.detail-sec p span{
+  font-weight: 500;
+}
+.detail-sec .re-status-pending{
+  left: 30px;
+}
+
+.re-status-pending-manage{
+  position: absolute;
+  right: 20px;
+  bottom:100px;
+}
+
+.toaster{
+  position: absolute;
+  z-index: 999999999999999999999;
+}

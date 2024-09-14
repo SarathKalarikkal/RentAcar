@@ -1,0 +1,196 @@
+.carList-header{
+    background:  linear-gradient(180deg,
+    rgba(0, 0, 0, 0.607),
+    rgba(0, 0, 0, 0.699)), 
+      url(
+../../../assets/inventory-img.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+ }
+ .carList-header h1, .CarList-contact i, .CarList-contact span{
+    color: white;
+ }
+ .CarList-contact{
+     display: flex;
+     flex-direction: row;
+     gap: 20px;
+     justify-content: center;
+     align-items: center;
+ }
+
+
+
+ hr{
+    background-color: var(--text-color);
+ }
+
+.carlist-sec{
+    padding: 60px 0;
+}
+ .sidebar-wrapper{
+    height: 100%;
+    background: var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+/* Sidebar Styling */
+.sidebar {
+    padding: 30px;
+}
+.sidebar select, .top-controls select{
+    background-color: var(--input-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    background: #000;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.filter-group {
+    margin-bottom: 50px;
+}
+
+.filter-group label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: var(--text-color);
+}
+.price-values{
+    color: var(--text-color);
+}
+.filter-group .form-select, 
+.filter-group .form-range {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.body-type-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.body-type-options .form-check {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 0 0 48%;
+    cursor: pointer;
+}
+.form-check label{
+    margin-bottom: 0;
+    margin-top: 2px;
+}
+.body-type-options img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+}
+.reset-button{
+    background: none;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    margin-top: 10px;
+    color: var(--text-color);
+}
+
+/* Car List Section Styling (Same as previously provided) */
+.car-box {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Other car-box styles continue here */
+
+/* Top Controls Styling */
+.top-controls {
+    align-items: center;
+}
+
+.form-select {
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+.view-switcher {
+    display: inline-flex;
+    align-items: center;
+}
+
+.view-switcher .btn {
+    background: var(--input-color);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-switcher .btn.active {
+    background: var(--brand-color);
+    color: #fff;
+    border: none;
+}
+
+.view-switcher .btn i {
+    pointer-events: none;
+}
+.price-range{
+    width: 100%;
+}
+.price-range{
+    width: 100%;
+}
+
+.filter-btn, .reset-btn{
+    border: 0;
+    outline: 0;
+    padding: 7px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+@media screen and (max-width:564px){
+    .car-box {
+        /* padding: 5px; */
+    }
+}
+@media screen and (max-width:768px){
+    .CarList-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .sidebar{
+        margin-bottom: 20px;
+    }
+    .view-switcher {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+}

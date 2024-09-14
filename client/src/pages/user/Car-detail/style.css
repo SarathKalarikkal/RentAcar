@@ -1,0 +1,204 @@
+.car-detail-header{
+    background:  linear-gradient(180deg,
+   rgba(0, 0, 0, 0.607),
+   rgba(0, 0, 0, 0.699)), 
+     url(
+ ../../../assets/car-detail.jpg);
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+}
+.car-detail-header h1{
+  color: white;
+  margin: 0;
+}
+
+
+.car-detail{
+    padding: 60px 0;
+}
+.car-detail .vehicle-des-hd, .car-detail table  {
+    color: var(--text-color);
+}
+.car-detail table {
+    border: var(--border-color);
+}
+.car-detail img{
+    width: 100%;
+}
+.detail-main-img{
+    background: rgb(50, 50, 50);
+}
+.sub-img{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.detail-sub-img{
+    background: rgb(50, 50, 50);
+    width: 23%;
+}
+
+
+.nav-tabs .nav-link{
+    color: #495057;
+    padding: 12px;
+    background-color: #fff;
+   
+}
+.nav-tabs .nav-link.active{
+    border: 0;
+}
+.nav-tabs{
+    padding: 20px 0;
+}
+.nav-tabs .nav-link:hover {
+    border: 0;
+    isolation: isolate;
+}
+
+.description-box .form-group{
+    margin-top: 20px;
+}
+.description-box .form-group input{
+    padding: 10px;
+}
+.description-box .post-btn{
+    margin-top: 15px;
+    border: 0;
+   outline: 0;
+   padding: 8px 16px;
+   background: var(--brand-color);
+   font-weight: 600;
+}
+
+
+
+
+
+
+.dealer-info-sec{
+    box-shadow: var(--box-shadow);
+    height: 100%;
+    background-color: var(--secondary-color);
+}
+
+.right-header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.payment-available, .Dealer, .Message{
+    padding: 30px;
+}
+.Message-sec form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.Message-sec form input,.Message-sec form textarea {
+    padding: 8px ;
+    background-color: var(--input-color);
+    border: 1px solid var(--border-color);
+    outline: 0;
+}
+.Message-sec form button{
+    margin-top: 10px;
+   padding: 8px 16px;
+}
+
+
+
+
+.Dealer-sec .Dealer{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   text-align: center;
+}
+.Dealer-sec .dealer-img{
+    width: 30%;
+}
+.Dealer-sec  .dealer-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Dealer-sec  .dealer-content h4{
+    margin: 10px 0 0 0;
+    color: var(--text-color);
+}
+.Dealer-sec  .dealer-content span{
+    color: grey;
+    margin: 0;
+}
+.Dealer-sec .dealer-soc{
+  display: flex;
+  gap: 20px;
+  color: var(--text-color);
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.Dealer-sec .dealer-contact{
+   display: flex;
+   flex-direction: column;
+   margin-top: 35px;
+   color: var(--text-color);
+}
+.Dealer-sec .dealer-contact label{
+    font-weight: 600;
+    font-size: 18px;
+}
+.Dealer-sec .dealer-contact  i{
+    color: var(--brand-color);
+}
+
+
+.payment-available{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.payment-available .paypal{
+    width: 40%;
+}
+.payment-available .payment-below{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+.payment-available .payment-below img{
+    width: 20%;
+}
+
+.rqst-btn{
+    padding: 10px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 3px;
+    background: var(--brand-color);
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.rqst-btn:hover{
+    background-color: rgb(255, 140, 0);
+}
+
+@media screen and (max-width:768px){
+    .car-spec {
+        width: 430px;
+        overflow-x: scroll;
+    }
+    .description-box .post-btn{
+        margin-bottom: 20px;
+    }
+}

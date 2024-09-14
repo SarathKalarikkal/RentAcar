@@ -1,0 +1,115 @@
+.inventory-header{
+  background:  linear-gradient(180deg,
+  rgba(0, 0, 0, 0.607),
+  rgba(0, 0, 0, 0.699)), 
+    url(
+../../../assets/inventory-img.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+}
+.inventory-header h1{
+  color: white;
+  margin: 0;
+}
+
+.right.inventory{
+  padding: 10px 20px;
+}
+.right.inventory p{
+  line-height: 24px;
+}
+
+.inventory-btns{
+  display: flex;
+  gap: 10px;
+
+}
+
+.inventory-btns button{
+  width: 100px;
+  padding: 2px 10px;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  font-weight: 600;
+  background: none;
+  transition: 0.2s;
+}
+ .car-box-list-view .left  img{
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio:1 ;
+    height: 200px;
+}
+
+.inventory-btns .edit-btn{
+   border: 1px solid rgb(0, 170, 255);
+
+}
+.inventory-btns .edit-btn:hover{
+  background-color:rgb(0, 170, 255) ;
+}
+.inventory-btns .edit-btn:hover  a{
+  background-color:rgb(0, 170, 255) ;
+  color: white!important;
+}
+.inventory-btns .delete-btn{
+  border: 1px solid rgb(255, 15, 15);
+  color: rgb(255, 15, 15);
+}
+.inventory-btns .delete-btn:hover{
+  background-color:rgb(255, 15, 15) ;
+  color: white;
+}
+
+
+@media screen and (max-width:768px){
+ 
+.car-box-list-view {
+  display: flex;
+  flex-direction: column;
+}
+.car-box-list-view .right {
+  padding: 10px;
+ width: 100%;
+}
+
+}
+
+.delete-popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999999;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.589);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-popup div{
+  width: 400px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+.delete-popup div button{
+  border: 0;
+  outline: 0;
+  padding: 5px;
+  margin-right: 10px;
+  width: 70px;
+  border-radius: 3px;
+  color: white;
+}
+.delete-popup div .yes{
+  background-color: red;
+  
+}
+.delete-popup div .no{
+  background-color: rgb(31, 192, 3);
+}

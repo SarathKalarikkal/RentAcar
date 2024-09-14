@@ -1,0 +1,40 @@
+.adminSidebar{
+    background: var(--secondary-color );
+    box-shadow: var(--box-shadow);
+    width: 250px!important;
+}
+.adminSidebar a.nav-link::after{
+  background: none;
+}
+.adminSidebar .logo{
+    color: var(--text-color);
+    padding: 10px 20px;
+}
+.adminSidebar a.nav-link{
+    /* margin-bottom: 15px; */
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.adminSidebar .nav-link.active{
+    color: var(--brand-color);
+    background: var(--active-color);
+}
+.adminSidebar strong{
+    color: var(--text-color);
+}
+
+
+.adminSidebar .nav-link div{
+    margin-left: 20px;
+}
+
+@media screen and (max-width:564px){
+    .adminSidebar{
+        width: 61px!important;
+    }
+    .sidebar-span{
+        display: none;
+    }
+}

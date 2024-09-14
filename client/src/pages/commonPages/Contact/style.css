@@ -1,0 +1,101 @@
+.contact-header{
+    background:  linear-gradient(180deg,
+    rgba(0, 0, 0, 0.607),
+    rgba(0, 0, 0, 0.699)), 
+      url(
+../../../assets/cars-img.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+    padding: 100px 0;
+}
+.contact-header h1{
+   text-align: center;
+   color: white;
+}
+
+
+
+.contact-boxes-sec{
+    padding: 60px 0;
+}
+
+.contact-box{
+    background-color: var(--secondary-color);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.icon-box{
+    background-color: var(--brand-color);
+    box-shadow: var(--box-shadow);
+    padding: 50px 80px;
+    position: relative;
+    bottom: 50px;
+}
+.contact-box p, .contact-box h4{
+    color: var(--text-color);
+}
+.icon-box i{
+    color: white;
+    font-size: 30px;
+}
+.contact-box-content{
+    margin-bottom: 30px;
+}
+
+
+
+.contact-wrapper{
+    padding: 40px 0;
+}
+.contact-msg h2, .contact-msg p{
+    color: var(--text-color);
+}
+.contact-msg form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.contact-msg form input{
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: var(--input-color);
+    border: 0;
+    outline: 0;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+.contact-msg form textarea{
+    background-color: var(--input-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 10px;
+    margin-bottom: 0;
+    margin-bottom: 20px;
+}
+.contact-msg form button{
+    border: 0;
+    outline: 0;
+    background-color: var(--brand-color);
+    color: white;
+    padding: 8px 16px;
+    width: 40%;
+}
+
+@media screen and (max-width:768px){
+    .contact-box {
+        padding: 4px;
+        margin-bottom: 22px;
+    }
+    .icon-box {
+        padding: 21px 39px;
+        position: relative;
+        bottom: 20px;
+    }
+}

@@ -1,0 +1,114 @@
+.profile-sidebar {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-userpic img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.profile-usertitle-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+.user-about{
+    color: var(--text-color);
+}
+.profile-usertitle-email {
+    font-size: 14px;
+    color: #a9a9a9;
+    margin-bottom: 20px;
+}
+
+.profile-userbuttons a {
+    margin: 0 5px;
+}
+
+.profile-content {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-content .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-content .card-body {
+    padding: 20px;
+    background-color: var(--secondary-color);
+}
+.profile-content .card-body p, .card-title{
+    color: var(--text-color);
+}
+.rented-cars .car-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.rented-cars h6, .rented-cars p{
+    color: var(--text-color);
+}
+.rented-cars .car-item img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.rented-cars .car-info h6 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.rented-cars .car-info p {
+    font-size: 14px;
+    color: #bdbdbd;
+}
+
+
+
+.dealer-edit-form-wrapper {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dealer-edit-form .form-label {
+  font-weight: 500;
+}
+
+.dealer-edit-form .form-control {
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dealer-edit-form .btn {
+  margin-top: 10px;
+}
+
+.dealer-edit-form .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.dealer-edit-form .btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}

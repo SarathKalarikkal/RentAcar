@@ -1,0 +1,49 @@
+.notification-container {
+    margin-top: 50px;
+   
+  }
+  .notification-head{
+    color:white;
+    background:  linear-gradient(180deg,
+    rgba(0, 0, 0, 0.284),
+    rgba(0, 0, 0, 0.699)), 
+      url(
+  ../../../assets/Add-car-img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    padding: 30px 0;
+  }
+  .notification-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background-color: var(--secondary-color);
+  }
+  .notification-header {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text-color);
+  }
+  .notification-body {
+    font-size: 16px;
+  }
+  .notification-body {
+    color: var(--text-color);
+  }
+  .notification-status.approved {
+    color: #28a745;
+    font-weight: bold;
+  }
+  .notification-status.rejected {
+    color: #dc3545;
+    font-weight: bold;
+  }
+  .notification-date {
+    font-size: 14px;
+    color: #6c757d;
+  }
+
+  .notification-details{
+    color: var(--text-color);
+  }

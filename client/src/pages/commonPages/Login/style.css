@@ -1,0 +1,87 @@
+.login-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    background: url('../../../assets//bg-1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+body.dark .login-wrapper{
+    background: none
+}
+.login-wrapper form label, .login-wrapper p{
+    color: var(--text-color);
+}
+.login-wrapper form{
+    background-color: var(--secondary-color);
+    box-shadow: var(--box-shadow);
+    width: 500px;
+    height: 550px;
+    padding: 40px;
+}
+
+.login-wrapper form h2{
+    color: var(--text-color);
+    text-align: center;
+}
+
+.login-wrapper form .form-grp{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+.login-wrapper form .form-grp .inp-grp{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.login-wrapper form .form-grp .inp-grp.role{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+.login-wrapper form .form-grp .inp-grp.role label:nth-child(1){
+    font-weight: 600;
+}
+.rol-wrap{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+ .rol-wrap input, .rol-wrap label{
+    cursor: pointer;
+}
+.login-wrapper form .form-grp .inp-grp input{
+    padding: 8px;
+    margin-top: 5px;
+    background-color: var(--input-color);
+    border: 0;
+    outline: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+}
+.login-wrapper form button{
+    background-image: linear-gradient(to right, #F7971E 0%, #FFD200  51%, #F7971E  100%);
+    color: white;
+    padding: 8px 10px;
+    border: 0;
+    outline: 0;
+    font-weight: 700;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+.login-wrapper form button:hover{
+        background-position: right center; 
+        color: #fff;
+        text-decoration: none;
+}
+.login-wrapper form  p{
+    text-align: center;
+}

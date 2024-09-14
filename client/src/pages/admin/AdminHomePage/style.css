@@ -1,0 +1,28 @@
+.admin-top {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-top h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+
+.admin-bottom {
+    padding: 20px;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.card-body {
+    padding: 20px;
+}

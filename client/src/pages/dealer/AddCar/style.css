@@ -1,0 +1,169 @@
+.addCar-header{
+    background:  linear-gradient(180deg,
+    rgba(0, 0, 0, 0.607),
+    rgba(0, 0, 0, 0.699)), 
+      url(
+  ../../../assets/Add-car-img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    padding: 100px 0;
+    text-align: center;
+}
+.addCar-header h1{
+  color: white;
+  margin: 0;
+}
+#imagePreview {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#imagePreview img {
+    max-width: 140px;
+    height: auto;
+    margin-right: 10px;
+}
+.upload-btn{
+  border: 1px solid rgb(3, 176, 182);
+  background: none;
+  padding: 8px 10px;
+  color: rgb(1, 144, 149);
+  font-size: 14px;
+}
+.upload-btn:hover{
+  background-color:rgb(3, 176, 182) ;
+  color: white;
+}
+#add-car-form{
+    /* background-color: var(--secondry-color); */
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+}
+
+#add-car-form .car-form {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #add-car-form .form-layout {
+    display: flex;
+    width: 100%;
+  }
+  
+  #add-car-form .form-left {
+    flex: 2;
+    padding-right: 2rem;
+  }
+  
+  #add-car-form .form-right {
+    flex: 1;
+    padding-left: 2rem;
+    border-left: 1px solid #ddd;
+  }
+  
+  #add-car-form .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  #add-car-form .col-md-6 {
+    flex: 1;
+  }
+  
+  #add-car-form .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  #add-car-form .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color:var(--text-color);
+  }
+  
+  #add-car-form .form-group input,
+  #add-car-form .form-group textarea,
+  #add-car-form .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--input-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+  }
+  
+  #add-car-form .form-group textarea {
+    resize: vertical;
+  }
+  
+  #add-car-form .transmission-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  #add-car-form .transmission-options label {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    color: var(--text-color);
+  }
+  
+
+  
+  #add-car-form .addCar-btn{
+    padding: 9px 15px;
+    width: 40%;
+  }
+  
+  #add-car-form .image-preview {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+.image-container{
+  position: relative;
+}
+.image-container .button-wrap{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+  @media screen and (max-width:768px){
+    #add-car-form{
+      padding: 20px;
+  }
+  
+  }
+
+
+  .image-preview-item{
+    position: relative;
+  }
+  .image-preview-item .delete-btn{
+    padding: 0;
+    outline: 0;
+    border: 0;
+    color: red;
+    font-size: 20px;
+    background: 0;
+    position: absolute;
+    left:5px;
+    bottom: 5px;
+  }
+  .addCar-btn{
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+
+ #edit-car-form .form-group{
+     margin-bottom: 20px;
+  }

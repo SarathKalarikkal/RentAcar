@@ -1,0 +1,11 @@
+.theme-button i{
+    position: fixed;
+    top: 50%;
+    right: 0;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    z-index: 99999;
+    border: 1px solid grey;
+    cursor: pointer;
+}
