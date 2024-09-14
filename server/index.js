@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware setup
 app.use(cors({
-    origin: ["https://rent-acar-client-942922bnm-sarath-ks-projects.vercel.app/", "http://localhost:5173"],
+    origin: ["https://rent-acar-client.vercel.app", "http://localhost:5173"],
     credentials: true
 }));
 app.use(bodyParser.urlencoded({ extended: false }));
