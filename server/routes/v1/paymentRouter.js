@@ -5,7 +5,7 @@ import { Reservation } from '../../models/reservationModel.js';
 const stripe = new Stripe(process.env.Stripe_Private_API_KEY, { apiVersion: '2022-08-01' });
 const router = express.Router();
 
-const client_domain = 'https://rent-acar.vercel.app/';
+const client_domain = 'https://rent-acar.vercel.app';
 
 router.post('/create-checkout', async (req, res) => {
     try {
