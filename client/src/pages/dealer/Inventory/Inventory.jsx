@@ -57,7 +57,7 @@ const Inventory = () => {
                  )
               })
             ) : (
-              <p>No cars in inventory</p>
+              <p className='no-inventory'>No cars in inventory</p>
             )}
           </div>
         </div>

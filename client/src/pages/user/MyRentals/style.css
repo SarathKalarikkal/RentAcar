@@ -21,26 +21,25 @@
    background-color: var(--secondary-color);
    border-radius: 5px;
  }
-.rental-img img{
+.rental-img-car {
    width: 100%;
    object-fit: cover;
+   aspect-ratio: 1;
 }
 
  .reserved-car{
    padding: 40px 0;
  }
 
- .rental-card{
-   border-radius: 5px;
- }
+ 
  .rent-card-long{
    box-shadow: var(--box-shadow);
+   background-color: var(--secondary-color);
  }
  .rental-card-right{
-   background-color: var(--secondary-color);
-   padding: 30px;
+
+   padding: 10px;
    position: relative;
-   height: 300px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -48,11 +47,12 @@
  }
  .rental-card-right h3{
    color: var(--text-color);
+   margin-bottom: 0;
  }
  .rental-status{
    position: absolute;
-   right: 30px;
-   top: 55px;
+   right: 5px;
+   top: 13px;
    display: flex;
    gap: 5px;
  }
@@ -61,12 +61,27 @@
    color: grey;
  }
  .rental-status span{
-   background-color: rgb(255, 245, 227);
-   color: rgb(212, 104, 3);
+  
    padding: 1px 10px;
    border-radius: 5px;
    font-size: 14px;
  }
+ body.dark .rental-status span{
+   background: none;
+ }
+ 
+
+ .rental-status .pending{
+   background-color: rgb(255, 245, 227);
+   color: rgb(212, 104, 3);
+ }
+ .rental-status .confirmed{
+   background-color: rgb(232 255 245);
+   color: rgb(20, 146, 29);
+ }
+
+
+
  .reserved-car p{
    margin: 0;
  }
@@ -166,4 +181,14 @@
    display: flex;
    gap: 5px;
 }
+}
+
+@media screen and (max-width:992px){
+   .rented-box-below {
+      display: flex;
+      margin-bottom: 20px;
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+  }
 }

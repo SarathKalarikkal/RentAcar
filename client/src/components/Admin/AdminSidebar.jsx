@@ -9,6 +9,7 @@ import axiosInstance from "../../config/axiosInstance";
 import toast from "react-hot-toast";
 import Cookies from 'js-cookie';
 import { clearAdminInfo } from "../../Redux/features/adminSlice";
+import { TbMessage2 } from "react-icons/tb";
 
 const AdminHeader = () => {
 
@@ -48,6 +49,7 @@ const adminsignout = async()=>{
           className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
         >
           <span className="fs-4 logo">RentACar</span>
+          <span className="fs-4 logo-small">RAC</span>
         </Link>
         <hr />
         <ul className="nav  flex-column mb-auto">
@@ -92,6 +94,14 @@ const adminsignout = async()=>{
               </div>
             </Link>
           </li>
+          <li>
+            <Link to={'/admin/allmessages'} className={`nav-link ${activeLink('/admin/allmessages') ? 'active' : ''}`}>
+              <div>
+              <TbMessage2 />
+              <span className="ms-2 sidebar-span"> Messages</span>
+              </div>
+            </Link>
+          </li>
           
         </ul>
         <hr />
@@ -110,7 +120,7 @@ const adminsignout = async()=>{
               height={32}
               className="rounded-circle me-2"
             />
-            <strong>Admin</strong>
+            <strong className="admin-shown">Admin</strong>
           </a>
           <ul
             className="dropdown-menu text-small shadow"

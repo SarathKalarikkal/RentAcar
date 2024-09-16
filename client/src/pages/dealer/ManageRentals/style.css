@@ -17,7 +17,7 @@
 
 .rent-card{
   box-shadow: var(--box-shadow);
-  padding: 15px;
+  background: var(--secondary-color);
 }
 .rent-card{
   display: flex;
@@ -163,7 +163,26 @@
 .detail-sec .re-status-pending{
   left: 30px;
 }
+.detail-sec .status{
+  padding: 1px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  position: absolute;
+  top: 223px;
+  right: 20px;
+}
+.detail-sec .status.pending{
+  background-color: rgb(255, 245, 227);
+  color: rgb(212, 104, 3);
+}
+.detail-sec .status.confirmed{
+  background-color: rgb(232 255 245);
+  color: rgb(20, 146, 29);
+}
 
+.detail-sec h3, .detail-sec  p{
+  color: var(--text-color);
+}
 .re-status-pending-manage{
   position: absolute;
   right: 20px;

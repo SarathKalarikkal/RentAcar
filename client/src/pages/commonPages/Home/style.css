@@ -180,6 +180,9 @@
     .newsletter form button {
         width: 50%;
     }
+    .filter-sec{
+        display: none;
+    }
 }
 @media screen and (max-width: 768px) {
     .nav-item{

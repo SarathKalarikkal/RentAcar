@@ -1,5 +1,5 @@
 .reservation-card {
-    border: 1px solid #ddd;
+    background: var(--secondary-color);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 300px;
@@ -14,10 +14,22 @@
 .reservation-card h3 {
     margin: 8px 0;
     font-size: 1.2em;
+    color: var(--text-color);
 }
 .reservation-card p {
     margin: 4px 0;
-    color: #555;
+    color: grey;
+    font-size: 14px;
+}
+.reservation-card  p strong{
+    color: var(--text-color);
+}
+.rs-status{
+    color: grey;
+    text-align: end;
+}
+.rs-status small{
+    color: var(--text-color);
 }
 .reservation-card .view-button {
     display: inline-block;
@@ -39,4 +51,12 @@
     top: 50%;
     left: 50%;
 
+}
+
+@media screen and (max-width:564px) {
+    .reservation-card{
+        padding: 10px;
+        margin: 10px 0 10px 0;
+        width: 100%;
+    }
 }

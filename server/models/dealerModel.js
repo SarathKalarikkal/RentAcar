@@ -16,6 +16,10 @@ const dealerSchema = new mongoose.Schema(
             required: true,
             unique: true,
         },
+        about: {
+            type : String,
+            required:true,
+        },
         role: {
             type: String,
             enum: ["dealer", "admin"],
@@ -28,6 +32,9 @@ const dealerSchema = new mongoose.Schema(
             type: String,
             required: true,
             minLength: 6,
+        },
+        profilePic : {
+            type : String,
         },
         cars: [{ type: mongoose.Types.ObjectId, ref: "Car" }],
     },

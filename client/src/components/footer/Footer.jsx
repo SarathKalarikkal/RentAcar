@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="row">
         <div className="col-lg-3">
           <div className="footer-box">
-            <h2>LOGO</h2>
+            <h2> RentA<span className='logo-car-footer'>Car</span></h2>
             <p className="footer-desc">
             Discover the freedom of the open road with our top-notch car rental services
             </p>
@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
         <div className="col-lg-6">
           <p className="creator-tag">
-            Designed &amp; and developed by : Sarath
+            Designed &amp; developed : Sarath
           </p>
         </div>
       </div>

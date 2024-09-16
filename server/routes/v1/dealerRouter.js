@@ -1,12 +1,13 @@
 import express from "express"
 import { createDealer, dealerLogin, dealerProfile, checkDealer, dealerUpdate, dealerLogout, getAllDealers, getDealerInventory, getDealerNotifications, deleteDealerNotification} from "../../controllers/dealerController.js"
 import { authDealer } from "../../middlewares/authDealer.js"
+import { upload } from "../../middlewares/uploadMiddleWare.js"
 
 
 
 const router = express.Router()
 
-router.post('/create', createDealer);
+router.post('/create',upload.single('profilePic'), createDealer);
 router.post('/login', dealerLogin);
 router.get('/logout', dealerLogout);
 router.get('/list', getAllDealers);

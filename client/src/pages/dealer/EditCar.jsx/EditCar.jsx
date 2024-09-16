@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axiosInstance from '../../../config/axiosInstance';
 import toast, { Toaster } from 'react-hot-toast';
-import { MdDeleteForever } from "react-icons/md";
 
 const EditCar = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [carData, setCarData] = useState(null);
-  const [imageFiles, setImageFiles] = useState([]);
-  const [imagePreviews, setImagePreviews] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     make: '',
@@ -44,7 +41,6 @@ const EditCar = () => {
           rentPerHour: response.data.data.rentPerHour,
           description: response.data.data.description
         });
-        setImagePreviews(response.data.data.images || []);
       } catch (error) {
         console.error("Error fetching car details:", error);
         toast.error("Failed to fetch car details. Please try again.");
@@ -62,55 +58,30 @@ const EditCar = () => {
     });
   };
 
-  const handleImageChange = (event) => {
-    const files = Array.from(event.target.files);
-    const previews = files.map(file => URL.createObjectURL(file));
-    setImageFiles(files);
-    setImagePreviews(prevPreviews => [...prevPreviews, ...previews]);
-  };
-
-  const handleRemoveImage = (index) => {
-    const newImageFiles = imageFiles.filter((_, i) => i !== index);
-    const newImagePreviews = imagePreviews.filter((_, i) => i !== index);
-    setImageFiles(newImageFiles);
-    setImagePreviews(newImagePreviews);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const formDataToSend = new FormData();
-      
-    console.log("form dataaaa",formData)
-    // Append regular fields
-    for (const key in formData) {
-      if (formData.hasOwnProperty(key)) {
-        formDataToSend.append(key, formData[key]);
-      }
-    }
-
-    // Append files
-    imageFiles.forEach(file => {
-      formDataToSend.append('images', file);
-    });
-
+    
     try {
-      const response = await axiosInstance.put(`/car/update/${id}`, formDataToSend, {
+      const response = await axiosInstance.patch(`/car/update/${id}`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'application/json'
         }
       });
-
-      console.log(response);
+  
+      console.log(response.data);
       toast.success("Car updated successfully!");
+     setTimeout(()=>{
       navigate(`/dealer/inventory`);
+     },1000)
     } catch (error) {
       console.error("Error updating car:", error);
       toast.error("Failed to update car. Please try again.");
     }
   };
+  
 
   if (!carData) return <p>Loading...</p>;
+
 
   return (
     <>
@@ -302,7 +273,7 @@ const EditCar = () => {
                     required
                   />
                 </div>
-                <div className="form-group d-flex flex-column">
+                {/* <div className="form-group d-flex flex-column">
                   <label htmlFor="carImage">Car Images</label>
                   <input
                     type="file"
@@ -321,7 +292,7 @@ const EditCar = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
                 <button type="submit" className="addCar-btn main-btn">
                   Update Car
                 </button>

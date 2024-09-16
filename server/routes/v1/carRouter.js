@@ -14,7 +14,7 @@ const router = express.Router()
 router.post('/create', authDealer,upload.single("image"), createCar);
 router.get('/list', getCarsList); 
 router.get('/:id', getACar);
-router.put('/update/:id', authDealer, updateCar);
+router.patch('/update/:id', authDealer, updateCar);
 router.delete('/delete/:id', authDealer, deleteCar);
 
 

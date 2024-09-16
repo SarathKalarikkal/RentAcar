@@ -14,6 +14,9 @@ const[formActive, setFormActive] = useState(false)
   const carDetail = useSelector((state)=>state.car.carDetails)
   const dispatch = useDispatch()
 
+
+  console.log("cardetailsssss", carDetail);
+  
   const params = useParams()
 
 const carID = params.id
@@ -46,7 +49,7 @@ const reservationForm=()=>{
     <>
       <section className="car-detail-header">
         <div className="container">
-          <h1>CAR NAME</h1>
+          <h1>{carDetail?.name}</h1>
         </div>
       </section>
 
@@ -55,9 +58,9 @@ const reservationForm=()=>{
           <div className="row">
             <div className="col-12 col-md-8">
               <div className="detail-main-img">
-                <img src={carDetail?.images[0]} alt="" />
+                <img src={carDetail?.image} alt="" />
               </div>
-              <div className="sub-img">
+              {/* <div className="sub-img">
                 {
                   carDetail?.images.map((image)=>{
                     return(
@@ -69,7 +72,7 @@ const reservationForm=()=>{
                 }
                
                 
-              </div>
+              </div> */}
 
               <button className="rqst-btn" onClick={reservationForm}>Request for reservation</button>
                {
@@ -144,7 +147,7 @@ const reservationForm=()=>{
                   <div className="right-header">DEALER</div>
                   <div className="Dealer">
                     <div className="dealer-img">
-                      <img src={"../../src/assets/dealerImage.jpg"} alt="" />
+                      <img src={carDetail?.dealer?.profilePic || "../../src/assets/dealerImage.jpg"} alt="" />
                     </div>
                     <div className="dealer-content">
                       <h4>{carDetail?.dealer.name}</h4>

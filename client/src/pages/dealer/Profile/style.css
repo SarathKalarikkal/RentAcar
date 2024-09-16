@@ -92,11 +92,16 @@
 
 .dealer-edit-form .form-label {
   font-weight: 500;
+  color: var(--text-color);
 }
 
 .dealer-edit-form .form-control {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.dealer-edit-form  input{
+    background: var(--secondary-color);
+    color: var(--text-color);
 }
 
 .dealer-edit-form .btn {
@@ -111,4 +116,7 @@
 .dealer-edit-form .btn-secondary:hover {
   background-color: #5a6268;
   border-color: #545b62;
+}
+.car-info-dealer div p{
+    color: #8a8b8b!important;
 }

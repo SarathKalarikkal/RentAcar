@@ -12,8 +12,8 @@ const UserView = ({user,closeView}) => {
         </div>
         <div className="user-popup-body">
           <p><strong>Email:</strong> {user.email}</p>
-          <p><strong>Address:</strong> {user.address}</p>
-          <p><strong>Mobile:</strong> {user.mobile}</p>
+          <p><strong>Address:</strong> {user.location}</p>
+          <p><strong>Mobile:</strong> {user.phone}</p>
         </div>
       </div>
     </div>

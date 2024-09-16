@@ -85,3 +85,9 @@ body.dark .login-wrapper{
 .login-wrapper form  p{
     text-align: center;
 }
+
+@media screen and (max-width:564px) {
+    .login-wrapper form{
+        padding: 40px 20px;
+    }
+}

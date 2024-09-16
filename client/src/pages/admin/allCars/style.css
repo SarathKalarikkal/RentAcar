@@ -1,13 +1,12 @@
 .car-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
     padding: 16px;
     margin: 16px;
-    font-family: Arial, sans-serif;
+    background: var(--secondary-color);
 }
-.car-card img {
+.car-card .card-image{
   width: 100%;
   border-radius: 8px;
   aspect-ratio: 1;
@@ -38,8 +37,18 @@
     color: var(--text-color);
 }
 
-
-
+.delete-btn{
+  background-image: linear-gradient(to right, #f71e1e 0%, #ff6a00 51%, #ff0000);
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 3px;
+  outline: 0;
+  border: 0;
+}
+.delete-btn:hover{
+  background-position: right center;
+}
 
 .car-popup-overlay {
     position: fixed;
@@ -54,7 +63,7 @@
   }
   
   .car-popup-content {
-    background: white;
+    background: var(--secondary-color);
     border-radius: 8px;
     padding: 20px;
     width: 80%;
@@ -66,8 +75,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background: red;
-    color: white;
+    color: red;
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -78,26 +86,93 @@
   
   .car-details {
     text-align: left;
+    display: flex;
+    flex-direction: column;
   }
   
   .car-title {
     margin-top: 0;
+    color: var(--text-color);
   }
   
-  .car-images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
+.car-images{
+  height: auto;
+  width: 30%;
+}
+.car-top-hd{
+  color: var(--text-color);
+  margin-left: 20px;
+
+}
   .car-image {
-    width: 100px;
-    height: 60px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 4px;
   }
-  
+  .car-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 1px solid grey;
+    padding: 20px 0;
+  }
   .car-info p {
     margin: 5px 0;
+    color: var(--text-color);
+  }
+  .car-info p strong{
+    color:rgb(155, 154, 154);
+  }
+
+.car-dlt-wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.392);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dlt-wrap{
+  background-color: var(--secondary-color);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+
+}
+.dlt-wrap p{
+  color: var(--text-color);
+  margin-bottom: 0;
+}
+.dlt-wrap small{
+  color: grey;
+  margin-bottom: 20px;
+}
+
+.yes-btn, .no-btn{
+  border: 0;
+  outline: 0;
+  padding: 2px 15px;
+  color: white;
+}
+.yes-btn{
+  background-color: red;
+}
+.no-btn{
+  background-color: green;
+}
+
+  @media screen and (max-width:564px) {
+    .car-card {
+      margin:10px 0 10px 0;
+      padding: 10px;
+    }
   }

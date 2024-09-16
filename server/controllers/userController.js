@@ -2,7 +2,7 @@ import { User } from "../models/userModel.js";
 import bcrypt from 'bcrypt'
 import { generateToken } from "../utils/generateToken.js";
 import { Notification } from "../models/notificatioModel.js";
-import { cloudinaryInstance as cloudinary } from '../config/cloudinaryConfig.js';
+import { imageUploadCloudinary } from "../utils/cloudinary.js";
 
 
 
@@ -12,7 +12,8 @@ import { cloudinaryInstance as cloudinary } from '../config/cloudinaryConfig.js'
 export const userCreate = async (req, res, next) => {
     try {
 
-            const { name, email, password, role } = req.body;
+            const { name, email, password, role, location, about, phone } = req.body;
+            const profilePic = req.file;
 
             // console.log(req.file);
             
@@ -24,7 +25,7 @@ export const userCreate = async (req, res, next) => {
             // console.log(uploadResult.url)
 
 
-            if (!name || !email || !password || !role ) {
+            if (!name || !email || !password || !role || !location || !about || !phone) {
                 return res.status(400).json({ success: false, message: "All fields are required" });
             }
 
@@ -39,11 +40,27 @@ export const userCreate = async (req, res, next) => {
             const salt = 10;
             const hashedPassword = bcrypt.hashSync(password, salt);
 
-            
+            let imageUrlpro = '';
+        if (profilePic) {
+            try {
+                imageUrlpro = await imageUploadCloudinary(profilePic.path);
+            } catch (error) {
+                console.log(error);
+                return res.status(500).json({ success: false, message: "Image upload failed" });
+            }
+        }
 
             // Create new user
-            // const newUser = new User({ name, email, password: hashedPassword, mobile, profilePic: uploadResult.url });
-            const newUser = new User({ name, email, password: hashedPassword });
+            // Create new user
+        const newUser = new User({
+            name,
+            email,
+            password: hashedPassword,
+            about,
+            phone,
+            location,
+            profilePic: imageUrlpro
+        });
             await newUser.save();
 
             const id = newUser._id.toString();
@@ -116,7 +133,7 @@ export const userLogout = async (req, res, next) => {
 //user Profile
 export const userProfile = async (req, res, next) => {
    try {
-       const { id } = req.params;
+       const { id } = req.user;
        
        
        const userData = await User.findById(id).select("-password");
@@ -155,9 +172,8 @@ export const getAllUsers = async(req, res, next)=>{
 
 export const userUpdate = async (req, res) => {
     try {
-        const { name, email, phone, location } = req.body;
+        const { name, email, phone, location, about } = req.body;
         const { id } = req.params;
-        const file = req.file;
 
         // Find the user by ID
         const userExist = await User.findById(id);
@@ -165,26 +181,25 @@ export const userUpdate = async (req, res) => {
             return res.status(404).json({ success: false, message: "User not found" });
         }
 
-        // Prepare update data while excluding fields that should not be changed
+        let imageUrl;
+
+        // Check if a file was uploaded
+        if (req.file) {
+            imageUrl = await imageUploadCloudinary(req.file.path);
+            console.log(imageUrl);
+
+            // Add profilePic to updateData if imageUrl exists
+            updateData.profilePic = imageUrl;
+        }
+
+        // Prepare update data
         const updateData = {};
         if (name) updateData.name = name;
         if (email) updateData.email = email;
-        if (phone) updateData.phone = phone;
-        if (location) updateData.location = location;
-
-        // Handle file upload
-        if (file) {
-            const result = await new Promise((resolve, reject) => {
-                cloudinary.uploader.upload_stream({ folder: 'profile-pics' }, (error, result) => {
-                    if (error) {
-                        reject(error);
-                    }
-                    resolve(result);
-                }).end(file.buffer);
-            });
-
-            updateData.profilePic = result.secure_url; // Save the file URL
-        }
+        if (phone) updateData.mobile = phone; // Adjust field name to match model
+        if (location) updateData.address = location; // Adjust field name to match model
+        if (about) updateData.about = about;
+        if (imageUrl) updateData.profilePic = imageUrl; // Ensure this is added if an image was uploaded
 
         // Update the user and return the updated data
         const updatedUser = await User.findByIdAndUpdate(

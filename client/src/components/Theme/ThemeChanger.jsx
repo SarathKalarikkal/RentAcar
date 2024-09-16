@@ -20,7 +20,7 @@ const ThemeChanger = () => {
    
 
   return (
-    <div className='theme-button'>
+    <div className='theme-button' data-bs-toggle="tooltip" data-bs-placement="left" title="Theme Changer">
         <i className={theme ? 'bi bi-moon' : 'bi bi-sun'}onClick={handleTheme}></i>
     </div>
   )

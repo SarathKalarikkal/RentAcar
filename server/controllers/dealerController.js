@@ -3,20 +3,22 @@ import bcrypt from "bcrypt";
 import { generateToken } from "../utils/generateToken.js";
 import {Car} from "../models/carModel.js"
 import { Notification } from "../models/notificatioModel.js";
+import { imageUploadCloudinary } from "../utils/cloudinary.js";
 
 
 
 // Create Dealer
 export const createDealer = async (req, res, next) => {
     try {
-        const { name, email, phone, role, password, cars } = req.body;
+        const { name, email, phone, role, password, cars, location, about} = req.body;
+        const profilePic = req.file;
 
         // const uploadResult = await cloudinaryInstance.uploader.upload(req.file.path).catch((error)=>{
         //     console.log(error);
             
         // })
 
-        if (!name || !email || !password || !role || !phone ) {
+        if (!name || !email || !password || !role || !location || !about || !phone) {
             return res.status(400).json({ success: false, message: "All fields are required" });
         }
 
@@ -30,9 +32,14 @@ export const createDealer = async (req, res, next) => {
         const hashedPassword = bcrypt.hashSync(password, salt);
 
         // Handle profile picture upload
-        let profilePicUrl = '';
-        if (req.file) {
-            profilePicUrl = req.file.path; // Cloudinary URL
+        let imageUrlpro = '';
+        if (profilePic) {
+            try {
+                imageUrlpro = await imageUploadCloudinary(profilePic.path);
+            } catch (error) {
+                console.log(error);
+                return res.status(500).json({ success: false, message: "Image upload failed" });
+            }
         }
 
         // Create new dealer
@@ -52,7 +59,10 @@ export const createDealer = async (req, res, next) => {
             email,
             password: hashedPassword,
             role,
-            phone
+            phone,
+            about,
+            location,
+            profilePic: imageUrlpro
         });
 
         await newDealer.save();

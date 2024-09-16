@@ -78,3 +78,24 @@
    border-radius: 3px;
    font-weight: 600!important;
 }
+
+.logout{
+   background-color: crimson!important;
+}
+
+@media screen and (max-width:564px) {
+   .navbar{
+      padding: 10px 0;
+   }
+   a.nav-link:hover::after, a.nav-link.active::after {
+      width: 0%;
+  }
+}
+@media screen and (max-width:992px) {
+   .logout{
+     width: 25%;
+   }
+   .logout-link{
+      width: 25%;
+   }
+}

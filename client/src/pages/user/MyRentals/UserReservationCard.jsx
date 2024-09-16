@@ -57,61 +57,111 @@ const makePayment = async () => {
 
 
     return (
-        <>
-            <div className="col-md-12">
-               <Toaster />
-                <div className="rent-card-long mb-3 row">
-                    <div className="col-md-4">
-                        <div className="rental-img">
-                            <img src={reservation?.car?.images[0]} alt="" />
-                        </div>
-                    </div>
-                    <div className="col-md-8">
-                        <div className="rental-card-right">
-                            <div className="rental-status">
-                                <p>Status :</p>
-                                <span>{reservation?.status}</span>
-                            </div>
-                            <h3>{reservation?.car?.make } {reservation?.car?.model}</h3>
-                            <div className="rented-box">
-                                <label>Rental Period :</label>
-                                <span>{startDate} - {endDate}</span>
-                            </div>
-                            <div className="rented-box">
-                                <label>Total Price :</label>
-                                <span>{reservation?.totalRate} Rs</span>
-                            </div>
-                            <div className="rented-box-below">
-                                <div className="rental-btn">
-                                    <button className={`${reservation?.status === 'confirmed' ? 'd-none' : 'edit-reservation'}`} onClick={editHandler}>Edit</button>
-                                    <button className={`${reservation?.status === 'confirmed' ? 'd-none' : 'cancel-reservation'}`} onClick={onDelete}>Cancel</button>
-                                    <button className={`${reservation?.status === 'confirmed' ? 'pay-reservation' : 'd-none'}`} onClick={makePayment} >Pay</button>
-                                    <button className={`${reservation?.status === 'payed' ? 'return' : 'd-none'}`}  >Return</button>
-                                    
-                                </div>
-                                <p className="updated-status">Last updated on {updatedDate}</p>
-                            </div>
-                            {formActive && (
-                                <ReservationUpdateForm
-                                    setFormActive={setFormActive}
-                                    reservation={reservation}
-                                    carDetail={{
-                                        name: `${reservation?.car?.make || "Car Make"} ${reservation?.car?.model}`,
-                                        rentPerHour: reservation?.rentPerHour,
-                                        id: reservation?.car._id
-                                    }}
-                                    initialData={{
-                                        startDate: reservation?.startDate,
-                                        endDate: reservation?.endDate,
-                                        rentPerHour: reservation?.rentPerHour
-                                    }}
-                                />
-                            )}
-                        </div>
-                    </div>
-                </div>
+      <>
+        <div className="col-md-6">
+          <Toaster />
+          <div className="rent-card-long mb-3 row">
+            <div className="col-12 col-md-12 col-lg-4 p-0">
+              <img
+                className="rental-img-car "
+                src={reservation?.car?.image}
+                alt=""
+              />
             </div>
-        </>
+            <div className="col-12 col-md-12 col-lg-8">
+              <div className="rental-card-right">
+                <div className="rental-status">
+                  <p>Status :</p>
+                  <span
+                    className={`${
+                      reservation?.status === "pending"
+                        ? "pending"
+                        : "confirmed"
+                    }`}
+                  >
+                    {reservation?.status}
+                  </span>
+                </div>
+                <h3>
+                  {reservation?.car?.make} {reservation?.car?.model}
+                </h3>
+                <div className="rented-box">
+                  <label>Rental Period :</label>
+                  <span>
+                    {startDate} - {endDate}
+                  </span>
+                </div>
+                <div className="rented-box">
+                  <label>Total Price :</label>
+                  <span>{reservation?.totalRate} Rs</span>
+                </div>
+                <div className="rented-box-below">
+                  <div className="rental-btn">
+                    <button
+                      className={`${
+                        reservation?.status === "confirmed" ||"payed"
+                          ? "d-none"
+                          : "edit-reservation"
+                      }`}
+                      onClick={editHandler}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className={`${
+                        reservation?.status === "confirmed" ||"payed"
+                          ? "d-none"
+                          : "cancel-reservation"
+                      }`}
+                      onClick={onDelete}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className={`${
+                        reservation?.status === "confirmed"
+                          ? "pay-reservation"
+                          : "d-none"
+                      }`}
+                      onClick={makePayment}
+                    >
+                      Pay
+                    </button>
+                    <button
+                      className={`${
+                        reservation?.status === "payed" ? "return" : "d-none"
+                      }`}
+                    >
+                      Return
+                    </button>
+                  </div>
+                  <p className="updated-status">
+                    Last updated on {updatedDate}
+                  </p>
+                </div>
+                {formActive && (
+                  <ReservationUpdateForm
+                    setFormActive={setFormActive}
+                    reservation={reservation}
+                    carDetail={{
+                      name: `${reservation?.car?.make || "Car Make"} ${
+                        reservation?.car?.model
+                      }`,
+                      rentPerHour: reservation?.rentPerHour,
+                      id: reservation?.car._id,
+                    }}
+                    initialData={{
+                      startDate: reservation?.startDate,
+                      endDate: reservation?.endDate,
+                      rentPerHour: reservation?.rentPerHour,
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
     );
 };
 

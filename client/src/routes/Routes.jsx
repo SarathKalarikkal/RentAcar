@@ -33,6 +33,7 @@ import { AdminAuth } from "./ProtectedRoute/AdminAuth";
 import Success from "../pages/user/Success";
 import Cancel from "../pages/user/Cancel";
 import { DealerAuth } from "./ProtectedRoute/DealerAuth";
+import AllMessagePage from "../pages/admin/allMessagePage/AllMessagePage";
 
 
 
@@ -119,6 +120,10 @@ export const router = createBrowserRouter([
             {
                 path : "allrentals",
                 element: <AllRentalsPage />
+            },
+            {
+                path : "allmessages",
+                element: <AllMessagePage />
             },
 
            

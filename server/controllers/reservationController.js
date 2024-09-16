@@ -46,6 +46,7 @@ export const createReservation = async (req, res, next) => {
       const reservation = new Reservation({
          car: carId,
          user: userId,
+         dealer:car.dealer,
          startDate: start,
          endDate: end,
          rentPerHour,
@@ -179,7 +180,7 @@ export const getPendingReservations  = async(req, res, next)=>{
 export const getAllReservations = async(req, res, next)=>{
    try {
       
-   const reservation = await Reservation.find().populate('car').populate('user')
+   const reservation = await Reservation.find().populate('car').populate('user').populate('dealer')
 
    res.json({ success: true, message: "Reservation fetched successfully", data: reservation });
 
@@ -291,7 +292,7 @@ export const getUserReservations = async (req, res) => {
 
        
        // Fetch reservations associated with the user
-       const reservations = await Reservation.find({ user: userId }).populate('car', 'make model images');
+       const reservations = await Reservation.find({ user: userId }).populate('car', 'make model image');
 
        if (!reservations.length) {
            return res.status(404).json({ success: false, message: "No reservations found for this user" });
@@ -313,7 +314,7 @@ export const getDealerCarReservation =async(req, res, next)=>{
       const dealerCars = await Car.find({dealer : dealerId}).select('_id')
 
       const reservations = await Reservation.find({car : {$in : dealerCars}})
-      .populate('car', 'make model images')
+      .populate('car', 'make model image')
       .populate('user' , 'name email')
 
 

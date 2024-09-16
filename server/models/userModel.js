@@ -19,13 +19,18 @@ const userSchema = new mongoose.Schema(
             required : true,
             minLength : 6,
         },
-        mobile : {
+        phone : {
             type : String,
             minLength : 10,
             maxLength: 15
         },
-        address: {
+        location: {
             type : String,
+            required:true,
+        },
+        about: {
+            type : String,
+            required:true,
         },
         profilePic : {
             type : String,

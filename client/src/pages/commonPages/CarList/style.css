@@ -125,6 +125,7 @@ background-size: cover;
 /* Top Controls Styling */
 .top-controls {
     align-items: center;
+    display: flex;
 }
 
 .form-select {
@@ -192,5 +193,8 @@ background-size: cover;
         display: inline-flex;
         align-items: center;
         margin-top: 10px;
+    }
+    .view-switcher-wrap{
+        display: none;
     }
 }

@@ -13,7 +13,7 @@
     justify-content: center;
 }
 .reservation-form-modal form{
-    background-color: white;
+    background-color: var(--secondary-color);
     width: 500px;
     height: 350px;
     padding: 40px;
@@ -31,11 +31,14 @@
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: 600;
+    color: var(--text-color);
 }
 .reservation-form-modal form .inp-group input{
    padding: 5px 10px;
    border: 1px solid grey;
    border-radius: 3px;
+   background-color: var(--secondary-color);
+   color: var(--text-color);
 }
 .reservation-form-modal form button{
     padding: 8px 10px;
@@ -67,4 +70,8 @@
 .reservation-form-modal  .close-btn:hover{
     color: var(--brand-color);
    
+}
+.total-rate label{
+    color: var(--text-color);
+    margin-right: 5px;
 }

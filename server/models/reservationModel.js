@@ -11,6 +11,11 @@ const reservationSchema = new mongoose.Schema({
     ref: 'User',  
     // required: true
   },
+  dealer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Dealer',  
+    // required: true
+  },
   startDate: {
     type: Date,
     required: true
@@ -21,7 +26,7 @@ const reservationSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['pending', 'confirmed', 'cancelled','rejected', 'completed', 'returned'],
+    enum: ['pending', 'confirmed', 'cancelled','rejected', 'completed', 'returned', 'payed'],
     default: 'pending'
   },
   rentPerHour: {

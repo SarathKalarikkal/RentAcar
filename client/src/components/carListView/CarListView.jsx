@@ -14,7 +14,7 @@ const CarListView = ({car}) => {
       {/* <i className="bi bi-heart-fill heart" /> */}
     </div>
     <div className="left">
-      <img src={car?.images[0]} alt="" />
+      <img className='car-img' src={car?.image} alt="" />
     </div>
     <div className="right">
       <div className="car-list-content">

@@ -52,7 +52,7 @@ const DealerHeader = () => {
     <nav className="navbar navbar-expand-lg">
 <div className="container">
 <Link className="navbar-brand" to='/'>
-     RentACar
+RentA<span className='logo-car'>Car</span>
     </Link>
  <button
    className="navbar-toggler"

@@ -29,6 +29,98 @@
 .adminSidebar .nav-link div{
     margin-left: 20px;
 }
+.logo-small{
+    display: none;
+}
+
+
+
+
+/* MessageCard.css */
+
+.message-card {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: var(--secondary-color);
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    padding: 1rem;
+}
+
+.message-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.message-card .card-body {
+    padding: 0;
+}
+
+.message-card .calendar-icon {
+    font-size: 24px;
+    color: #6c757d;
+}
+
+.message-card .small-btn {
+    border-radius: 50%;
+    width: 28px; /* Reduced size */
+    height: 28px; /* Reduced size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    background: none;
+}
+
+
+
+
+
+
+
+.message-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.message-card .card-subtitle {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.message-card .ml-3 {
+    margin-left: 1rem;
+}
+
+.message-card .collapse {
+    overflow: hidden;
+}
+
+.message-card .card-text {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width:564px){
     .adminSidebar{
@@ -36,5 +128,16 @@
     }
     .sidebar-span{
         display: none;
+    }
+    .admin-shown{
+        display: none;
+    }
+    .adminSidebar .logo{
+        display: none;
+    }
+    .logo-small{
+        display: block;
+        color: var(--text-color);
+    padding: 10px;
     }
 }

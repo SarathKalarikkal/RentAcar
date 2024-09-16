@@ -75,8 +75,8 @@ const CarList = () => {
           <div className="row">
             <div className="col-12 col-lg-12">
               <div className="car-list">
-                <div className="row">
-                  <div className="row top-controls mb-4">
+                <div className="">
+                  <div className="top-controls mb-4">
                     <form className="d-flex align-items-center gap-3 col-md-8" onSubmit={handleSubmit(onSubmit)}>
                       <div className="col-md-3">
                         <select className="form-select" {...register("sort")}>

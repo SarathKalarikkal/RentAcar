@@ -8,7 +8,7 @@ import { imageUploadCloudinary } from "../utils/cloudinary.js";
 
 
 
-
+//create a car
 export const createCar = async (req, res, next) => {
   try {
     const {
@@ -84,7 +84,7 @@ export const getACar = async (req, res, next) => {
             })
             .populate({
                 path: 'dealer',  
-                select: 'name location phone email'  
+                select: 'name location phone email profilePic'  
             })
             .exec();
 
@@ -142,71 +142,71 @@ export const getCarsList = async (req, res, next) => {
 
 
 // Update a car
+
 export const updateCar = async (req, res, next) => {
   try {
-      const { id } = req.params;
+    const { id } = req.params;
 
-      // Find the car by ID
-      const car = await Car.findById(id);
-      if (!car) {
-          return res.status(404).json({ success: false, message: "Car not found" });
+    // Extract fields from the request body
+    const {
+      name, description, make, model, fuelType,
+      transmission, color, seating, mileage, rentPerHour, type, location
+    } = req.body;
+
+    // Log incoming data for debugging
+    console.log("Incoming data:", req.body);
+
+    // Perform the update operation
+    const result = await Car.updateOne(
+      { _id: id },
+      {
+        $set: {
+          name,
+          description,
+          make,
+          model,
+          fuelType,
+          type,
+          transmission,
+          color,
+          seating,
+          mileage,
+          rentPerHour,
+          location
+        }
       }
+    );
 
-    
-
-      // Extract other fields from the request body
-      const {
-          name, description, make, model, fuelType,
-          transmission, color, seating, mileage, reviews, bookedTimeSlots, rentPerHour, dealer, image
-      } = req.body;
-
-      // Check if a car with the same name and dealer already exists (excluding current car)
-      if (name && dealer) {
-          const dealerDetail = await Dealer.findById(dealer._id);
-          if (!dealerDetail) {
-              return res.status(404).json({ success: false, message: "Dealer not found" });
-          }
-          const carExists = await Car.findOne({ name, dealer: dealerDetail._id, _id: { $ne: id } });
-          if (carExists) {
-              return res.status(409).json({ success: false, message: "Another car with the same name and dealer already exists" });
-          }
-      }
-
-let imageUrl
-
-      if (req.file) {
-        imageUrl = await imageUploadCloudinary(req.file.path);
-        console.log(imageUrl);
-        
+    // Check if the update was successful
+    if (result.modifiedCount === 0) {
+      return res.status(404).json({ success: false, message: "Car not found or no changes made" });
     }
 
-      // Update the car with new data
-      const updatedCar = await Car.findByIdAndUpdate(
-          id,
-          {
-              name, image: imageUrl && imageUrl, description, make, model, fuelType,
-              transmission, color, seating, mileage, reviews, bookedTimeSlots, rentPerHour,
-              dealer: dealer ? dealer._id : car.dealer
-          },
-          { new: true }
-      )
+    // Retrieve the updated car for the response
+    const updatedCar = await Car.findById(id)
       .populate({
-          path: 'reviews',
-          populate: {
-              path: 'user',
-              select: 'name email'
-          }
+        path: 'reviews',
+        populate: {
+          path: 'user',
+          select: 'name email'
+        }
       })
       .populate({
-          path: 'dealer',
-          select: 'name location phone email'
+        path: 'dealer',
+        select: 'name location phone email'
       })
       .exec();
 
-      res.json({ success: true, message: "Car updated successfully", data: updatedCar });
+    // Check if the car was found
+    if (!updatedCar) {
+      return res.status(404).json({ success: false, message: "Car not found" });
+    }
+
+    // Respond with the updated car data
+    res.json({ success: true, message: "Car updated successfully", data: updatedCar });
   } catch (error) {
-      console.error("Error updating car:", error.message);
-      res.status(500).json({ success: false, message: error.message || "Internal server error" });
+    console.error("Error updating car:", error.message);
+    res.status(500).json({ success: false, message: error.message || "Internal server error" });
   }
 };
 

@@ -71,7 +71,7 @@ const handleDelete = async (reservationId) => {
                     />
                   ))
                 ) : (
-                  <div>You don't Reserved a car yet? <Link to={'/user/carlist'}>Book your fav car.</Link></div>
+                  <div className="no-inventory">You don't Reserved a car yet? <Link to={'/user/carlist'}>Book your fav car.</Link></div>
                 )
               }
             </div>

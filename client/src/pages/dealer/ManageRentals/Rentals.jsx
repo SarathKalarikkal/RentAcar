@@ -46,7 +46,7 @@ console.log("asdasd",dealerReservationList);
               )
             })
           ) : (
-            <p>Currently No reservation found..!</p>
+            <p className='no-inventory'>Currently No reservation found..!</p>
           )
           
          }

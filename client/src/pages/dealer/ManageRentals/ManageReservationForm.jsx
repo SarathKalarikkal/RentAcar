@@ -49,13 +49,17 @@ const ManageReservationForm = ({ reservation, setFormActive }) => {
       <div className="manage-card-box">
         <button className='close-btn' onClick={closeForm}><i className="bi bi-x-circle-fill"></i></button>
         <div className="img-sec">
-          <img src={reservation?.car.images[0]} alt="" />
+          <img src={reservation?.car.image} alt="" />
         </div>
         <div className="detail-sec">
           <h3>{reservation?.car.make} {reservation?.car.name}</h3>
           <p>Rented By : <span>{reservation?.user.name}</span></p>
           <p>Email : <span>{reservation?.user.email}</span></p>
-          <span className='re-status-pending-manage'>{reservation?.status}</span>
+          <span  className={`${
+                      reservation?.status === "pending"
+                        ? "pending"
+                        : "confirmed"
+                    } status`}>{reservation?.status}</span>
           <div className='d-flex justify-content-between my-3'>
             <p className='mb-0 fw-bold'>Start Date : <span>{startDate}</span></p>
             <p className='mb-0 fw-bold'>End Date : <span>{endDate}</span></p>

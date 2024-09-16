@@ -1,14 +1,20 @@
 import express from 'express';
 import Stripe from 'stripe';
+import { Reservation } from '../../models/reservationModel.js';
 
-const stripe = new Stripe(process.env.Stripe_Private_API_KEY);
+const stripe = new Stripe(process.env.Stripe_Private_API_KEY, { apiVersion: '2022-08-01' });
 const router = express.Router();
 
-const client_domain = 'http://localhost:5173'
+const client_domain = 'https://rent-acar-client.vercel.app';
 
 router.post('/create-checkout', async (req, res) => {
     try {
         const { reservation } = req.body;
+
+        // Ensure the reservation data is complete
+        if (!reservation || !reservation.car || !reservation.totalRate) {
+            return res.status(400).json({ success: false, message: "Incomplete reservation data" });
+        }
 
         // Create a new Stripe Checkout Session
         const session = await stripe.checkout.sessions.create({
@@ -19,9 +25,9 @@ router.post('/create-checkout', async (req, res) => {
                         currency: 'inr',
                         product_data: {
                             name: `${reservation.car.make} ${reservation.car.model}`,
-                            images: reservation.car.images,
+                            images: reservation.car.images || [],  // Ensure images is an array
                         },
-                        unit_amount: reservation.totalRate * 100, 
+                        unit_amount: reservation.totalRate * 100, // Convert to cents
                     },
                     quantity: 1,
                 },
@@ -30,33 +36,40 @@ router.post('/create-checkout', async (req, res) => {
             success_url: `${client_domain}/user/payment/success`,
             cancel_url: `${client_domain}/user/payment/cancel`,
         });
-        reservation.status = 'payed'
-        
 
-        console.log(reservation)
+        // Update the reservation status to 'payed'
+        const userReservation = await Reservation.findById(reservation._id);
+        if (userReservation) {
+            userReservation.status = 'payed';
+            await userReservation.save();
+        }
+
         // Respond with the session ID
-        res.json({success:true, id: session.id });
+        res.json({ success: true, id: session.id });
     } catch (error) {
-        res.status(error.statusCode || 500).json({ message: error.message || "Internal server error" });
+        console.error('Error creating checkout session:', error);
+        res.status(error.statusCode || 500).json({ success: false, message: error.message || "Internal server error" });
     }
 });
 
+router.get('/session-status', async (req, res) => {
+    try {
+        const sessionId = req.query.session_id;
+        if (!sessionId) {
+            return res.status(400).json({ success: false, message: "Session ID is required" });
+        }
 
-router.get('/session-status', async(req, res, next)=>{
-  try {
-    
-   const sessionId = req.query.session_id;
-   const session = await stripe.checkout.session.retrive(sessionId)
+        const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-   res.send({
-    status : session?.status,
-    customer_email :session?.customer_detail?.email,
-    session
-   });
-
-  } catch (error) {
-    res.status(error?.statusCode || 500).json(error.message || "internal server error")
-  }
-})
+        res.send({
+            status: session?.status,
+            customer_email: session?.customer_email,
+            session
+        });
+    } catch (error) {
+        console.error('Error retrieving session status:', error);
+        res.status(error.statusCode || 500).json({ success: false, message: error.message || "Internal server error" });
+    }
+});
 
 export default router;

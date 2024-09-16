@@ -58,7 +58,7 @@ const userLogout = async()=>{
        <nav className="navbar navbar-expand-lg">
   <div className="container">
   <Link className="navbar-brand" to='/'>
-     RentACar
+  RentA<span className='logo-car'>Car</span>
     </Link>
     <button
       className="navbar-toggler"
@@ -99,7 +99,7 @@ const userLogout = async()=>{
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link logout-link" onClick={userLogout}>Logout</Link>
+          <Link className="nav-link logout-link logout" onClick={userLogout}>Logout</Link>
         </li>
         
       </ul>

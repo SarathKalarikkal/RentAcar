@@ -70,13 +70,67 @@
     border-radius: 4px;
 }
 
-.rented-cars .car-info h6 {
+.rented-cars .car-inform h6 {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.rented-cars .car-info p {
+.rented-cars .car-inform p {
     font-size: 14px;
     color: #bdbdbd;
+}
+.user-pro{
+    position: relative;
+}
+.profile-edit-wrapper{
+    position: fixed;
+    background-color: #00000066;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    z-index: 99999999;
+}
+.profile-edit-wrapper form{
+    width: 80%;
+    height: 80%;
+    background: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    position: relative;
+}
+.close-btn-user{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+.close-btn-user i{
+    color: var(--brand-color);
+    font-size: 20px;
+}
+
+@media screen and (max-width:992px) {
+    .profile-edit-wrapper form{
+        width: 100%;
+        height: 100%;
+        padding: 50px;
+    }
+}
+@media screen and (max-width:768px) {
+    .profile-edit-wrapper{
+        padding: 25px;
+    }
+}
+@media screen and (max-width:564px) {
+    .profile-edit-wrapper, .profile-edit-wrapper form{
+        padding: 10px;
+    }
 }

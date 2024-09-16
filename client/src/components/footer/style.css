@@ -13,6 +13,9 @@ p.footer-desc{
 .footer-box {
     margin-bottom: 20px;
 }
+.logo-car-footer{
+    color: var(--brand-color);
+}
 .footer-box ul {
     list-style: none;
     margin: 0;
@@ -64,4 +67,10 @@ p.footer-desc{
 }
 .creator-tag{
     text-align: end;
+}
+
+@media screen and (max-width:768px) {
+    .creator-tag{
+        text-align: start;
+    }
 }

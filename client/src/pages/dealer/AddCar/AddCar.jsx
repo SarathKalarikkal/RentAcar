@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axiosInstance from '../../../config/axiosInstance';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 const AddCar = () => {
   const [formData, setFormData] = useState({
@@ -18,6 +19,8 @@ const AddCar = () => {
     location: '',
     description: '',
   });
+
+  const navigate = useNavigate()
 
   const [image, setImage] = useState(null);
 
@@ -60,6 +63,10 @@ const AddCar = () => {
   
       console.log("Successfully uploaded");
       toast.success(response.data.message);
+
+      setTimeout(()=>{
+        navigate(`/dealer/inventory`);
+       },1000)
       
       // Reset form
       setFormData({
@@ -85,6 +92,7 @@ const AddCar = () => {
 
   return (
     <>
+    <Toaster />
       <section className="addCar-header">
         <div className="container">
           <h1>ADD A CAR</h1>

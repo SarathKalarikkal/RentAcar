@@ -48,7 +48,7 @@ export const getAllDealers = async (req, res, next) => {
 // Get all cars
 export const getAllCars = async (req, res, next) => {
     try {
-        const cars = await Car.find();
+        const cars = await Car.find().populate('dealer name');
         res.json({ success: true, message: "Cars fetched successfully", data: cars });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message || "Internal server error" });
@@ -103,8 +103,8 @@ export const updateCar = async (req, res, next) => {
 // Delete a car
 export const deleteCar = async (req, res, next) => {
     try {
-        const { carId } = req.params;
-        const car = await Car.findByIdAndDelete(carId);
+        const { id } = req.params;
+        const car = await Car.findByIdAndDelete(id);
 
         if (!car) {
             return res.status(404).json({ success: false, message: "Car not found" });
@@ -120,7 +120,7 @@ export const deleteCar = async (req, res, next) => {
 // Get all reservations
 export const getAllReservations = async (req, res, next) => {
     try {
-        const reservations = await Reservation.find().populate('car user');
+        const reservations = await Reservation.find().populate('car').populate('dealer').populate('user')
         res.json({ success: true, message: "Reservations fetched successfully", data: reservations });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message || "Internal server error" });

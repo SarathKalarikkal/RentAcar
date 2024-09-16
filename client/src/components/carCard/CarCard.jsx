@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 const CarCard = ({car}) => {
 
 const {userInfo} = useSelector((state)=>state.user)
-console.log("usersssss", userInfo)
+console.log("usersssss", car)
 
   return (
     
@@ -16,7 +16,7 @@ console.log("usersssss", userInfo)
                 <div className="mid">
                 <span className={car.availableStatus === 'Available' ? 'available' : 'not-available'}>{car.availableStatus}</span>
 
-                  <img src={car?.images[0]} alt="" />
+                  <img src={car?.image} alt="" />
                 </div>
                 <div className="bottom">
                   <div className="model">

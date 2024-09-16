@@ -44,7 +44,7 @@ const DealerNotification = () => {
               <DealerNotifiactionCard key={message._id} message={message} onDelete={handleDeleteNotification} />
             ))
           ) : (
-            <p>No notifications available.</p> 
+            <p className='no-inventory'>No notifications available.</p> 
           )}
         </div>
       </div>

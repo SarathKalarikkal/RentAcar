@@ -47,3 +47,6 @@
   .notification-details{
     color: var(--text-color);
   }
+  .notification-nill{
+    color: var(--text-color);
+  }

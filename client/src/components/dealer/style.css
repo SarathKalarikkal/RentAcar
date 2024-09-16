@@ -69,3 +69,16 @@
 .notifi-span.none{
    display: none;
 }
+
+body.dark .navbar-toggler-icon{
+   color: var(--brand-color);
+}
+
+@media screen and (max-width:564px) {
+   .navbar{
+      padding: 10px 0;
+   }
+   a.nav-link:hover::after, a.nav-link.active::after {
+      width: 0%;
+  }
+}
