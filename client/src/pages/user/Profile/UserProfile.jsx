@@ -199,13 +199,19 @@ const UserProfile = () => {
                   <input id="location" {...register('location')} className="form-control" placeholder="Enter your location" />
                 </div>
               </div>
+              <div className="col-md-12 mb-3">
+                <div className="form-group">
+                  <label htmlFor="about" className="form-label">About</label>
+                  <textarea id="about" {...register('about')} className="form-control" placeholder="Enter about yourself" />
+                </div>
+              </div>
 
-              <div className="col-md-6 mb-3">
+              {/* <div className="col-md-6 mb-3">
                 <div className="form-group">
                   <label htmlFor="profilePic" className="form-label">Profile Picture</label>
                   <input type="file" id="profilePic" accept="image/*" className="form-control" {...register('profilePic')} />
                 </div>
-              </div>
+              </div> */}
 
               <div className="col-md-12 mb-3">
                 <button type="submit" className="main-btn p-2">Update Profile</button>

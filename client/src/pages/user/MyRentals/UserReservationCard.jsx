@@ -99,7 +99,7 @@ const makePayment = async () => {
                   <div className="rental-btn">
                     <button
                       className={`${
-                        reservation?.status === "confirmed" ||"payed"
+                        reservation?.status === "confirmed" || reservation?.status === "payed"
                           ? "d-none"
                           : "edit-reservation"
                       }`}
@@ -109,7 +109,7 @@ const makePayment = async () => {
                     </button>
                     <button
                       className={`${
-                        reservation?.status === "confirmed" ||"payed"
+                        reservation?.status === "confirmed" || reservation?.status === "payed"
                           ? "d-none"
                           : "cancel-reservation"
                       }`}

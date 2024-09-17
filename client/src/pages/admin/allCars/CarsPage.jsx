@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import CarCardAdmin from './CarCardAdmin';
 import { IoCarSharp } from 'react-icons/io5';
 import axiosInstance from '../../../config/axiosInstance';
+import AdminLoader from '../../../components/Loader/AdminLoader';
 
 const CarsPage = () => {
     const [allCars, setAllCars] = useState([]);
     const [filteredCars, setFilteredCars] = useState([]);
-    const [filterCriteria, setFilterCriteria] = useState("");
+    const [filterCriteria, setFilterCriteria] = useState(""); 
+    const [loading, setLoading] = useState(true);
 
     const fetchAllCars = async () => {
         try {
@@ -14,9 +16,11 @@ const CarsPage = () => {
             const carsData = response.data.data;
             console.log("all cars for admin", carsData);
             setAllCars(carsData);
-            setFilteredCars(carsData); // Set initial filter to show all cars
+            setFilteredCars(carsData); 
+            setLoading(false)
         } catch (error) {
             console.error("Error fetching cars:", error);
+            setLoading(false)
         }
     };
 
@@ -53,6 +57,9 @@ const CarsPage = () => {
             console.error("Error deleting car:", error);
         }
     };
+    if (loading) {
+        return <AdminLoader/>;
+      }
 
     return (
         <>

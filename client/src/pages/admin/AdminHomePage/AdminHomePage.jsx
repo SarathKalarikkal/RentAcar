@@ -5,10 +5,13 @@ import { BiSolidDashboard } from 'react-icons/bi';
 import './style.css';
 import axiosInstance from "../../../config/axiosInstance";
 
+import AdminLoader from '../../../components/Loader/AdminLoader';
+
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const AdminHomePage = () => {
     const [usersCount, setUsersCount] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [dealersCount, setDealersCount] = useState(null);
     const [carsCount, setCarsCount] = useState(null);
     const [chartData, setChartData] = useState({
@@ -51,8 +54,10 @@ const AdminHomePage = () => {
                     },
                 ],
             });
+            setLoading(false)
         } catch (error) {
             console.error('Error fetching counts:', error);
+            setLoading(false)
         }
     };
 
@@ -75,6 +80,10 @@ const AdminHomePage = () => {
             },
         },
     };
+    if (loading) {
+        return <AdminLoader/>;
+      }
+
 
     return (
         <>

@@ -2,16 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { MdMessage } from "react-icons/md";
 import axiosInstance from '../../../config/axiosInstance';
 import MessageCard from '../../../components/Admin/MessageCard';
+import AdminLoader from '../../../components/Loader/AdminLoader';
 
 const AllMessagePage = () => {
     const [messages, setMessages] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchMessages = async () => {
         try {
             const response = await axiosInstance.get('/message/list');
             setMessages(response.data.data);
+            setLoading(false)
         } catch (error) {
             console.error("Failed to fetch messages:", error);
+            setLoading(false)
         }
     };
 
@@ -22,6 +26,10 @@ const AllMessagePage = () => {
     useEffect(() => {
         fetchMessages();
     }, []);
+
+    if (loading) {
+        return <AdminLoader/>;
+      }
 
     return (
         <div className='d-flex flex-column w-100 all-user-wrapper'>

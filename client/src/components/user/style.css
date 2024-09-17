@@ -82,7 +82,9 @@
 .logout{
    background-color: crimson!important;
 }
-
+.nav-link.logout:hover::after {
+   width: 0;
+}
 @media screen and (max-width:564px) {
    .navbar{
       padding: 10px 0;

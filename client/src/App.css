@@ -33,6 +33,8 @@ body.dark{
     --available-color : #009300;
     --available-text-color : #ffff;
     --active-color: #0a192f;
+    --Not-available-text-color : #ffffff;
+    --Not-available-color: #f20202;
 
     background-color: var(--primary-color);
 }

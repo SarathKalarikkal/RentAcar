@@ -6,11 +6,13 @@ import axiosInstance from '../../../config/axiosInstance';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCarList } from '../../../Redux/features/carSlice';
 import { useForm } from 'react-hook-form';
+import Loader from '../../../components/Loader/Loader';
 
 const CarList = () => {
   const [boxView, setBoxView] = useState(true);
   const dispatch = useDispatch();
   const {carList, filteredData} = useSelector((state) => state.car);
+  const [loading, setLoading] = useState(true);
 
   console.log("home fikter", filteredData)
 
@@ -23,8 +25,10 @@ const CarList = () => {
       const response = await axiosInstance.get('/car/list');
       const cars = response.data;
       dispatch(setCarList(cars.data));
+      setLoading(false)
     } catch (err) {
       console.error('Error fetching car list:', err);
+      setLoading(false)
     }
   };
 
@@ -49,6 +53,10 @@ const CarList = () => {
   const handleReset = () => {
     reset(); 
     fetchCarlist(); 
+  }
+
+  if (loading) {
+    return <Loader/>;
   }
 
   return (

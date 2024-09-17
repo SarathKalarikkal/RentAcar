@@ -59,6 +59,13 @@
     align-items: center;
     margin-bottom: 15px;
 }
+.rented-cars{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
 .rented-cars h6, .rented-cars p{
     color: var(--text-color);
 }

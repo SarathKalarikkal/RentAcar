@@ -6,10 +6,16 @@ import axiosInstance from "../../../config/axiosInstance";
 import { useDispatch, useSelector } from "react-redux";
 import { setCarDetails } from "../../../Redux/features/carSlice";
 import ReservationForm from "../../../components/ReservationForm/ReservationForm";
+import paypal from '../../../assets/paypal.png'
+import visa from '../../../assets/visaCard.jpg'
+import masterCard from '../../../assets/masterCard.jpg'
+import Loader from "../../../components/Loader/Loader";
+
 
 const CarDetailPage = () => {
 
-const[formActive, setFormActive] = useState(false)
+const[formActive, setFormActive] = useState(false) 
+const [loading, setLoading] = useState(true);
 
   const carDetail = useSelector((state)=>state.car.carDetails)
   const dispatch = useDispatch()
@@ -26,9 +32,10 @@ const fetchCarDetail = async()=>{
     const response = await axiosInstance.get(`/car/${carID}`)
     const carData =  response.data
     dispatch(setCarDetails(carData.data))
+    setLoading(false)
   } catch (error) {
     console.log(error);
-    
+    setLoading(false)
   }
 }
 
@@ -41,7 +48,9 @@ const reservationForm=()=>{
 }
 
 
-
+if (loading) {
+  return <Loader/>;
+}
 
 
 
@@ -126,18 +135,18 @@ const reservationForm=()=>{
                   <div className="payment-available">
                     <img
                       className="paypal"
-                      src={"../../src/assets/paypal.png"}
+                      src={paypal}
                       alt=""
                     />
                     <div className="payment-below">
                       <img
                         className="visa"
-                        src={"../../src/assets/visaCard.jpg"}
+                        src={visa}
                         alt=""
                       />
                       <img
                         className="master-card"
-                        src={"../../src/assets/masterCard.jpg"}
+                        src={masterCard}
                         alt=""
                       />
                     </div>

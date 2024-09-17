@@ -3,21 +3,26 @@ import { HiTicket } from "react-icons/hi2";
 import AdminRentalCard from './AdminRentalCard';
 import "./style.css"
 import axiosInstance from '../../../config/axiosInstance';
+import AdminLoader from '../../../components/Loader/AdminLoader';
 
 const AllRentalsPage = () => {
   const [allReservations, setAllReservations]= useState(null)
+  const [loading, setLoading] = useState(true);
 
   const fetchAllreservations = async()=>{
       const response = await axiosInstance.get('/admin/reservations')
       const reservationData = response.data.data
       console.log("all dealers for admin",reservationData);
       setAllReservations(reservationData)
+      setLoading(false)
   }
   
   useEffect(()=>{
     fetchAllreservations()
   },[])
-
+  if (loading) {
+    return <AdminLoader/>;
+  }
 
   return (
     <>

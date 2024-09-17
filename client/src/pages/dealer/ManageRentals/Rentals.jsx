@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.css"
 import car from "../../../assets/car.png"
 import ManageRentalCard from './ManageRentalCard'
 import axiosInstance from '../../../config/axiosInstance'
 import { useDispatch, useSelector } from 'react-redux'
 import { setDealerReservationList } from '../../../Redux/features/reservationSlice'
+import Loader from '../../../components/Loader/Loader'
 
 const Rentals = () => {
+  const [loading, setLoading] = useState(true);
 
   const {dealerReservationList}= useSelector((state)=>state.reservation)
+
 
   const dispatch = useDispatch()
 
@@ -17,6 +20,7 @@ const Rentals = () => {
    const resevationData =  response.data.data
    console.log("deale reserw", resevationData);
    dispatch(setDealerReservationList(resevationData))
+   setLoading(false)
   }
 
 useEffect(()=>{
@@ -25,6 +29,9 @@ useEffect(()=>{
 
 console.log("asdasd",dealerReservationList);
 
+if (loading) {
+  return <Loader/>;
+}
 
   return (
     <>
@@ -36,7 +43,7 @@ console.log("asdasd",dealerReservationList);
 
      <section className='manageRentals py-5'>
    <div className="container mt-5">
-       <div className="row g-3">
+       <div className="row g-5">
          {
 
           dealerReservationList.length > 0 ? (

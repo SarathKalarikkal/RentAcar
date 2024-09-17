@@ -10,7 +10,7 @@ export const InventoryCard = ({ car, handleDeleteCar }) => {
     return text.slice(0, maxLength) + '...';
   };
 
-  const maxDescriptionLength = 120; // Customize the length as needed
+  const maxDescriptionLength = 120; 
 
   return (
     <>

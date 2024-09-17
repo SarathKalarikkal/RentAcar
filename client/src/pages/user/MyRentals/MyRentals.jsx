@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import axiosInstance from "../../../config/axiosInstance";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,18 +7,20 @@ import UserReservationCard from "./UserReservationCard";
 import { deleteUserReservation, setUserReservationList } from "../../../Redux/features/reservationSlice";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import Loader from "../../../components/Loader/Loader";
 
 function MyRentals() {
 
   const userReservationList = useSelector((state) => state.reservation.userReservationList);
   const dispatch = useDispatch()
+  const [loading, setLoading] = useState(true);
 
   const fetchReservation = async()=>{
     const response = await axiosInstance.get('/reservation/user/reservations')
     const reservationData = response.data.data
     console.log("reservation",reservationData);
     dispatch(setUserReservationList(reservationData))
-    
+    setLoading(false)
   }
 
 useEffect(()=>{
@@ -45,7 +47,9 @@ const handleDelete = async (reservationId) => {
 };
 
 
-
+if (loading) {
+  return <Loader/>;
+}
 
 
   return (
@@ -60,7 +64,7 @@ const handleDelete = async (reservationId) => {
       <section className="reserved-car">
         <div className="container ">
           <div className="rental-card">
-            <div className="row g-0">
+            <div className="row g-5">
               {
                 userReservationList.length > 0 ? (
                   userReservationList.map((reservation) => (

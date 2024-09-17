@@ -3,6 +3,7 @@ import "./style.css"
 import { Link } from 'react-router-dom'
 import axiosInstance from '../../../config/axiosInstance'
 import { InventoryCard } from './InventoryCard.jsx'
+import Loader from '../../../components/Loader/Loader.jsx'
 
 
 
@@ -36,7 +37,7 @@ const Inventory = () => {
   
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loader/>;
   }
 
   return (
@@ -49,7 +50,7 @@ const Inventory = () => {
 
       <section className='inventory py-5'>
         <div className="container">
-          <div className="row">
+          <div className="row g-5">
             {inventoryList.length > 0 ? (
               inventoryList?.map((car) => {
                  return(
