@@ -15,8 +15,11 @@ const ManageReservationForm = ({ reservation, setFormActive }) => {
 
   const approveReservation = async () => {
     try {
+      debugger
       const response = await axiosInstance.put(`/reservation/approve/${reservation._id}`);
+      debugger
       toast.success(response.data.message);
+      debugger
       setTimeout(()=>{
         setFormActive(false); 
       },1000)

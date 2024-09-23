@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
 import NavTab from "../../../components/NavTab/NavTab";
 import { useParams } from "react-router-dom";
 import axiosInstance from "../../../config/axiosInstance";
@@ -10,12 +9,13 @@ import paypal from '../../../assets/paypal.png'
 import visa from '../../../assets/visaCard.jpg'
 import masterCard from '../../../assets/masterCard.jpg'
 import Loader from "../../../components/Loader/Loader";
+import "./style.css"
 
 
 
 
 
-const CarDetailPage = () => {
+const DealerCarDetail = () => {
 
 const[formActive, setFormActive] = useState(false) 
 const [loading, setLoading] = useState(true);
@@ -92,7 +92,7 @@ if (loading) {
                 
               </div> */}
 
-              <button className="rqst-btn" onClick={reservationForm}>Request for reservation</button>
+              {/* <button className="rqst-btn" onClick={reservationForm}>Request for reservation</button> */}
                {
                 formActive && <ReservationForm setFormActive={setFormActive} carDetail={carDetail}/>
                }
@@ -132,7 +132,10 @@ if (loading) {
               <div className="row">
                 <div className="description-box">
                   <div className="col-lg-12">
-                      <NavTab  carDetail={carDetail}/>
+                    <h4>Description</h4>
+                  <div className="tab-pane fade show active" role="tabpanel">
+            <p className="des">{carDetail?.description}</p>
+          </div>
                   </div>
                 </div>
               </div>
@@ -218,4 +221,4 @@ if (loading) {
   );
 };
 
-export default CarDetailPage;
+export default DealerCarDetail;

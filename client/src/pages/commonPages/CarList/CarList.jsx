@@ -34,6 +34,7 @@ const CarList = () => {
 
   useEffect(() => {
     fetchCarlist();
+    window.scrollTo(0, 0);
   }, []);
 
   const { register, handleSubmit, reset } = useForm();

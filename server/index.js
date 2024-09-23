@@ -14,7 +14,7 @@ app.use(cors({
     origin: ["https://rent-acar.vercel.app", "http://localhost:5173"],
     credentials: true
 }));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));    
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());

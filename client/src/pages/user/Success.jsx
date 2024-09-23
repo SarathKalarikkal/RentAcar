@@ -18,7 +18,7 @@ const Success = () => {
         </div>
         <h1 className="mt-4">Payment Successful!</h1>
         <p className="lead">Thank you for your purchase. Your payment has been processed successfully.</p>
-        <Link to={'/'} className="btn btn-primary mt-3">Return to Homepage</Link>
+        <Link to={'/user'} className="main-btn mt-3 p-2">Return to Homepage</Link>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.Stripe_Private_API_KEY, { apiVersion: '202
 const router = express.Router();
 
 const client_domain = 'https://rent-acar.vercel.app';
-// const client_domain = 'http://localhost:5173';
+// const client_domain = 'http://localhost:5173';  
 
 router.post('/create-checkout', async (req, res) => {
     try {

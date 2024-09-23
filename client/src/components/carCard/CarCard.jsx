@@ -1,17 +1,30 @@
 import React from 'react'
 import './style.css'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { Link  } from 'react-router-dom'
+
 
 const CarCard = ({car}) => {
 
-const {userInfo} = useSelector((state)=>state.user)
-console.log("usersssss", car)
+
+
+const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+
+console.log("usersssss", userInfo?.role)
+let url
+
+if(userInfo?.role === 'user'){
+    url = `/user/car-detail/${car?._id}`
+}else if(userInfo?.role === 'dealer'){
+  url = `/dealer/car-detail/${car?._id}`
+}else{
+   url = `/common/login`
+}
+
 
   return (
     
-          <Link to={userInfo? (`/user/car-detail/${car?._id}`) : ('/common/login')}>
-              <div className="car-box">
+          <Link to={url}>
+              <div className="car-box">   
 
                 <div className="mid">
                 <span className={car.availableStatus === 'Available' ? 'available' : 'not-available'}>{car.availableStatus}</span>

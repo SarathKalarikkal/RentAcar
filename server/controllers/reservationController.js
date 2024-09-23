@@ -6,7 +6,7 @@ import { User } from "../models/userModel.js";
 
 
 //create reservation
-export const createReservation = async (req, res, next) => {
+export const createReservation = async (req, res, next) => {   
    try {
       const { carId, startDate, endDate, rentPerHour,totalRate } = req.body;
       const userId = req.user.id;
@@ -108,9 +108,10 @@ export const approveReservation  = async(req, res, next)=>{
 
      const userNotification = new Notification({
       user: reservation.user._id,
+      reservedby: reservation.user._id, // If you're using reservedby, pass the user
+      reservation: reservation._id,  // Include the reservation field
       message: `Your reservation for ${car.name} has been approved.`,
-   });
-
+    });
     await userNotification.save();
 
      res.json({ success: true, message: "Reservation approved", data: reservation });

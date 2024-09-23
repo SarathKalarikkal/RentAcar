@@ -34,12 +34,15 @@ import Success from "../pages/user/Success";
 import Cancel from "../pages/user/Cancel";
 import { DealerAuth } from "./ProtectedRoute/DealerAuth";
 import AllMessagePage from "../pages/admin/allMessagePage/AllMessagePage";
+import DealerCarDetail from "../pages/dealer/DealerCarDetail/DealerCarDetail";
+
 
 
 
 
 
 export const router = createBrowserRouter([
+    
     {
         path : 'common',
         element : <CommonLayout />,
@@ -82,10 +85,10 @@ export const router = createBrowserRouter([
         children : [
             { path : '', element : <HomePage /> },
             { path : "carlist", element: <CarList /> },
-            // {
-            //   path : "car-detail/:id",
-            //   element: <DealerAuth><CarDetailPage /></DealerAuth>
-            // },
+            {
+                path : "car-detail/:id",
+                element: <DealerCarDetail />
+              },
             { path : "car/edit/:id", element: <EditCar /> },
             { path : "profile", element: <DealerProfile /> },
             { path : "managerentals", element: <Rentals /> },
