@@ -8,7 +8,7 @@ import { loadStripe } from "@stripe/stripe-js";
 
 
 
-const UserReservationCard = ({ reservation, onDelete  }) => {
+const UserReservationCard = ({ reservation, onDelete , fetchReservation }) => {
 
     const startDate = formatDate(reservation?.startDate);
     const endDate = formatDate(reservation?.endDate);
@@ -24,7 +24,6 @@ const UserReservationCard = ({ reservation, onDelete  }) => {
     };
 
     const closeForm = () => {
-        setFormActive(false);
     };
     
 
@@ -54,6 +53,25 @@ const makePayment = async () => {
         toast.error('An error occurred. Please try again.');
     }
 };
+
+
+const handleReturn = async () => {
+  try {
+      const response = await axiosInstance.put(`/reservation/return/${reservation._id}`);
+      
+      if (response.data.success) {
+          toast.success("Car returned successfully!");
+          fetchReservation()
+      } else {
+          toast.error(response.data.message || "Failed to return the car.");
+      }
+  } catch (error) {
+      console.error('Error returning the car:', error);
+      toast.error('An error occurred while returning the car. Please try again.');
+  }
+};
+  
+
 
 
     return (
@@ -131,6 +149,7 @@ const makePayment = async () => {
                       className={`${
                         reservation?.status === "payed" ? "return" : "d-none"
                       }`}
+                      onClick={handleReturn}
                     >
                       Return
                     </button>

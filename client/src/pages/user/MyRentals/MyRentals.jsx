@@ -72,6 +72,7 @@ if (loading) {
                       key={reservation._id}
                       reservation={reservation}
                       onDelete={() => handleDelete(reservation._id)}
+                    fetchReservation={fetchReservation}
                     />
                   ))
                 ) : (

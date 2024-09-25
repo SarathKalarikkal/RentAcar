@@ -1,5 +1,5 @@
 import express from "express"
-import { approveReservation, cancelReservation, createReservation, getAllReservations, getDealerCarReservation, getPendingReservations, getUserReservations, rejectReservation, updateReservation } from "../../controllers/reservationController.js"
+import { approveReservation, cancelReservation, createReservation, getAllReservations, getDealerCarReservation, getPendingReservations, getUserReservations, rejectReservation, returnReservation, updateReservation } from "../../controllers/reservationController.js"
 import { authUser } from "../../middlewares/authUser.js";
 import { authDealerOrAdmin } from "../../middlewares/authDealerORAdmin.js";
 import { authAdmin } from "../../middlewares/authAdmin.js";
@@ -12,6 +12,7 @@ router.post('/create', authUser, createReservation);
 router.get('/user/reservations', authUser, getUserReservations);
 router.put('/:id', authUser, updateReservation);
 router.delete('/reservation/:id', authUser, cancelReservation);
+router.put('/return/:id', authUser, returnReservation);
 
 // Dealer/Admin routes
 router.put('/approve/:id', authDealer, approveReservation);

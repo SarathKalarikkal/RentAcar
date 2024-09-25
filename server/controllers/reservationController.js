@@ -326,3 +326,50 @@ export const getDealerCarReservation =async(req, res, next)=>{
       res.status(500).json({ success: false, message: "Internal server error" });
    }
 }
+
+
+// Return a reservation
+export const returnReservation = async (req, res, next) => {
+   try {
+      const { id } = req.params; // Get the reservation ID from the request parameters
+
+      // Find the reservation by ID
+      const reservation = await Reservation.findById(id);
+
+      if (!reservation) {
+         return res.status(404).json({ success: false, message: "Reservation not found" });
+      }
+
+      // Check if the reservation status is payed
+      if (reservation.status !== 'payed') {
+         return res.status(400).json({ success: false, message: "Only payed reservations can be returned" });
+      }
+
+      // Find the associated car
+      const car = await Car.findById(reservation.car);
+
+      if (!car) {
+         return res.status(404).json({ success: false, message: "Car not found" });
+      }
+
+      // Update the car's available status to "Available"
+      car.availableStatus = "Available";
+      await car.save();
+
+      // Delete the reservation
+      await Reservation.findByIdAndDelete(id);
+
+      // Notify the dealer about the return
+      const dealerNotification = new Notification({
+         reservedby: reservation.user,
+         dealer: reservation.dealer,
+         message: `The reservation for ${car.name} has been returned.`,
+      });
+
+      await dealerNotification.save();
+
+      res.json({ success: true, message: "Reservation returned successfully" });
+   } catch (error) {
+      res.status(500).json({ success: false, message: error.message || "Internal server error" });
+   }
+};
