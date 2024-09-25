@@ -7,20 +7,23 @@ import UserReservationCard from "./UserReservationCard";
 import { deleteUserReservation, setUserReservationList } from "../../../Redux/features/reservationSlice";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import Loader from "../../../components/Loader/Loader";
+// import Loader from "../../../components/Loader/Loader";
 
 function MyRentals() {
 
   const userReservationList = useSelector((state) => state.reservation.userReservationList);
   const dispatch = useDispatch()
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
+
+  console.log("iiiiiiiii",userReservationList);
+  
   const fetchReservation = async()=>{
     const response = await axiosInstance.get('/reservation/user/reservations')
     const reservationData = response.data.data
     console.log("reservation",reservationData);
     dispatch(setUserReservationList(reservationData))
-    setLoading(false)
+    // setLoading(false)
   }
 
 useEffect(()=>{
@@ -47,9 +50,9 @@ const handleDelete = async (reservationId) => {
 };
 
 
-if (loading) {
-  return <Loader/>;
-}
+// if (loading) {
+//   return <Loader/>;
+// }
 
 
   return (

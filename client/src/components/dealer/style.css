@@ -54,7 +54,7 @@
 .notifi-span.visible{
    position: absolute;
    top: 0;
-   right: -6px;
+   right: 25px;
    background: rgb(254, 28, 28);
    color: white;
    padding: 3px;
