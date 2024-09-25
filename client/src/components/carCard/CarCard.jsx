@@ -1,6 +1,10 @@
 import React from 'react'
 import './style.css'
 import { Link  } from 'react-router-dom'
+import carModel from '../../assets/car-model.png'
+import gear from '../../assets/gear.png'
+import speed from '../../assets/speed.png'
+import seat from '../../assets/seat.png'
 
 
 const CarCard = ({car}) => {
@@ -44,19 +48,19 @@ if(userInfo?.role === 'user'){
                   <hr />
                   <div className="deatail">
                     <div className="model-type">
-                      <img src={'../src/assets/car-model.png'} alt="" />
+                      <img src={carModel} alt="" />
                       <span>{car.type}</span>
                     </div>
                     <div className="model-type">
-                      <img src={'../src/assets/gear.png'} alt="" />
+                      <img src={gear} alt="" />
                       <span>{car?.transmission}</span>
                     </div>
                     <div className="model-type">
-                      <img src={'../src/assets/speed.png'} alt="" />
+                      <img src={speed} alt="" />
                       <span>{car?.fuelType}</span>
                     </div>
                     <div className="model-type">
-                      <img src={"../src/assets/seat.png"} alt="" />
+                      <img src={seat} alt="" />
                       <span>{car?.seating}</span>
                     </div>
                   </div>

@@ -1,8 +1,30 @@
 import React from 'react'
 import './style.css'
+import { Link  } from 'react-router-dom'
+import carModel from '../../assets/car-model.png'
+import gear from '../../assets/gear.png'
+import speed from '../../assets/speed.png'
+import seat from '../../assets/seat.png'
 
 const CarListView = ({car}) => {
+
+
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+
+  console.log("usersssss", userInfo?.role)
+  let url
+  
+  if(userInfo?.role === 'user'){
+      url = `/user/car-detail/${car?._id}`
+  }else if(userInfo?.role === 'dealer'){
+    url = `/dealer/car-detail/${car?._id}`
+  }else{
+     url = `/common/login`
+  }
+
+
   return (
+    <Link to={url}>
     <div className="car-box-list-view">
     <div className="list-rating-wrap">
       <div className="list-rating">
@@ -27,26 +49,28 @@ const CarListView = ({car}) => {
       <div className="list-bottom">
         <div className="deatail">
           <div className="model-type">
-            <img src={"../src/assets/car-model.png"} alt="" />
+            <img src={carModel} alt="" />
             <span>{car?.type}</span>
           </div>
           <div className="model-type">
-            <img src={"../src/assets/gear.png"} alt="" />
+            <img src={gear} alt="" />
             <span>{car?.transmission}</span>
           </div>
           <div className="model-type">
-            <img src={"../src/assets/speed.png"} alt="" />
+            <img src={speed} alt="" />
             <span>{car?.fuelType}</span>
           </div>
           <div className="model-type">
-            <img src={"../src/assets/seat.png"} alt="" />
+            <img src={seat} alt="" />
             <span>{car?.seating}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
+  </Link>
   )
+  
 }
 
 export default CarListView
