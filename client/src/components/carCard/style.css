@@ -7,6 +7,9 @@ a{
     cursor: pointer;
     background-color: var(--secondary-color);
 }
+.car-box:hover{
+  border: 1px solid var(--border-color);
+}
 .car-box hr{
     background-color: var(--text-color);
 }

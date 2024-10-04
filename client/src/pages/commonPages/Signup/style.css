@@ -93,6 +93,17 @@ body.dark .signup-wrapper{
     color: red;
     margin-bottom: 0;
 }
+.inp-grp.password{
+    position: relative;
+}
+i.showBtn{
+    position: absolute;
+    right: 25px;
+    bottom: 8px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
 
 @media screen and (max-width:992px) {
     .signup-wrapper{

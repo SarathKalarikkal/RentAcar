@@ -10,7 +10,6 @@ import seat from '../../assets/seat.png'
 const CarCard = ({car}) => {
 
 
-
 const userInfo = JSON.parse(localStorage.getItem('userInfo'))
 
 console.log("usersssss", userInfo?.role)

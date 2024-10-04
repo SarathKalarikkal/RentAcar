@@ -11,6 +11,8 @@ export const createReservation = async (req, res, next) => {
       const { carId, startDate, endDate, rentPerHour,totalRate } = req.body;
       const userId = req.user.id;
 
+      console.log("userid",userId)
+
       // Ensure that the input dates are in YYYY-MM-DD format
       const start = new Date(startDate);
       const end = new Date(endDate);

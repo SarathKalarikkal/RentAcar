@@ -14,7 +14,8 @@ const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [selectedRole, setSelectedRole] = useState(''); // State to track selected role
+  const [selectedRole, setSelectedRole] = useState(''); 
+  const [showPassword, SetShowPassword] = useState(true); 
 
   const onSubmit = async (data) => {
     try {
@@ -92,10 +93,13 @@ const Signup = () => {
             />
             {errors.email && <p className="error">{errors.email.message}</p>}
           </div>
-          <div className="inp-grp col-lg-6">
+          <div className="inp-grp password col-lg-6">
             <label htmlFor="password">Password</label>
+          
+            <i className={`showBtn ${showPassword ? 'bi bi-eye-slash-fill' : 'bi  bi-eye-fill'}`} onClick={() => SetShowPassword(!showPassword)}></i>
             <input
-              type="password"
+          
+              type={showPassword ? 'password' : 'text'}
               name="password"
               id="password"
               {...register('password', { required: 'Password is required', minLength: { value: 6, message: 'Password must be at least 6 characters' } })}

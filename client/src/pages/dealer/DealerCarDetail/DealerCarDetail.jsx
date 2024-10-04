@@ -186,7 +186,7 @@ if (loading) {
                     </div>
                   </div>
                 </div>
-                <div className="Message-sec">
+                {/* <div className="Message-sec">
                   <div className="right-header">MESSAGE</div>
                   <div className="Message">
                     <form>
@@ -211,7 +211,7 @@ if (loading) {
                       <button type="submit" className="main-btn">SEND</button>
                     </form>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

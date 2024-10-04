@@ -5,8 +5,7 @@ export const convertToISODate = (dateStr) => {
         throw new Error("Invalid date string");
     }
 
-    const [year, month, day] = dateStr.split('-'); // Assuming the format is YYYY-MM-DD
-
+    const [year, month, day] = dateStr.split('-'); 
     if (!day || !month || !year) {
         throw new Error("Invalid date components");
     }

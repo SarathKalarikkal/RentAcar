@@ -10,6 +10,7 @@ import paypal from '../../../assets/paypal.png'
 import visa from '../../../assets/visaCard.jpg'
 import masterCard from '../../../assets/masterCard.jpg'
 import Loader from "../../../components/Loader/Loader";
+import toast, { Toaster } from "react-hot-toast";
 
 
 
@@ -53,7 +54,13 @@ useEffect(()=>{
 },[carID])
 
 const reservationForm=()=>{
-   setFormActive(true)
+  if(carDetail.availableStatus === 'Available'){
+    setFormActive(true)
+  }else{
+    toast.error(`Car already Reserved`);
+    return
+  }
+   
 }
 
 
@@ -65,6 +72,7 @@ if (loading) {
 
   return (
     <>
+    <Toaster/>
       <section className="car-detail-header">
         <div className="container">
           <h1>{carDetail?.name}</h1>
