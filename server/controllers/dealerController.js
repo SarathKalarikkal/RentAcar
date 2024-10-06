@@ -70,7 +70,11 @@ export const createDealer = async (req, res, next) => {
         // Create token
         const token = generateToken(id, email, role);
 
-        res.cookie("token", token);
+        res.cookie("token", token,{
+            sameSite: "None",
+            secure: true,
+            httpOnly: true,
+        });
         res.status(201).json({ success: true, message: "Dealer created successfully", userData: newDealer, token:token });
     } catch (error) {
         res.status(error.status || 500).json({ success: false, message: error.message || "Internal server error" });
