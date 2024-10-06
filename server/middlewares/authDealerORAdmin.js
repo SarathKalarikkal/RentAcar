@@ -1,5 +1,4 @@
 export const authDealerOrAdmin = (req, res, next) => {
-    console.log("asdfasdsa",req.user)
     if (req.user === 'dealer' || req.user === 'admin') {
         next();
     } else {

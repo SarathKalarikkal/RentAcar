@@ -68,7 +68,6 @@ const EditCar = () => {
         }
       });
   
-      console.log(response.data);
       toast.success("Car updated successfully!");
      setTimeout(()=>{
       navigate(`/dealer/inventory`);

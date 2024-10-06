@@ -27,7 +27,6 @@ const [loading, setLoading] = useState(true);
   const dispatch = useDispatch()
 
 
-  console.log("cardetailsssss", carDetail);
   
   const params = useParams()
 
@@ -40,7 +39,6 @@ const fetchCarDetail = async()=>{
     dispatch(setCarDetails(carData.data))
     setLoading(false)
   } catch (error) {
-    console.log(error);
     setLoading(false)
   }
 }

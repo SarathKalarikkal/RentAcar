@@ -8,23 +8,21 @@ import { loadStripe } from "@stripe/stripe-js";
 
 
 
-const UserReservationCard = ({ reservation, onDelete , fetchReservation }) => {
+const UserReservationCard = ({ reservation, onDelete , fetchReservation, setConfirmDelete,confirmDlete }) => {
 
     const startDate = formatDate(reservation?.startDate);
     const endDate = formatDate(reservation?.endDate);
     const updatedDate = formatDate(reservation?.updatedAt);
 
-    console.log("sadsadasdasd",reservation?.startDate);
-    
+   
 
+  
     const [formActive, setFormActive] = useState(false);
 
     const editHandler = () => {
         setFormActive(true);
     };
 
-    const closeForm = () => {
-    };
     
 
 
@@ -131,7 +129,7 @@ const handleReturn = async () => {
                           ? "d-none"
                           : "cancel-reservation"
                       }`}
-                      onClick={onDelete}
+                      onClick={()=>setConfirmDelete(true)}
                     >
                       Cancel
                     </button>
@@ -180,6 +178,21 @@ const handleReturn = async () => {
             </div>
           </div>
         </div>
+
+        {
+          confirmDlete && 
+          <>
+           <div className='confirmDelete'>
+               <div className="cfm-card">
+                  <p>Are Sure? You want to Cancel the reservation?</p>
+                  <div>
+                  <button className='yes-btn me-3' onClick={onDelete}>Yes</button>
+                  <button className='no-btn' onClick={()=>setConfirmDelete(false)}>No</button>
+                  </div>
+               </div>
+           </div>
+          </>
+        }
       </>
     );
 };

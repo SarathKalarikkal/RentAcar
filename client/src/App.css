@@ -4,6 +4,7 @@ body.light{
     --primary-color : #fefcff;
     --secondary-color : #ffffff;
     --text-color:#121212 ;
+    --text-sec-color :rgb(86, 86, 86);
     --sec-color : #172a46;
     --border-color: rgb(183, 183, 183);
     --box-shadow :  rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -23,6 +24,7 @@ body.dark{
     --primary-color : #0a192f;
     --secondary-color : #172a46;
     --text-color:#ffffff ;
+    --text-sec-color :rgb(187, 187, 187);
     --sec-color : #172a46;
     --border-color: #30415a;
     --box-shadow :  rgba(0, 0, 0, 0.2) 0px 8px 24px;

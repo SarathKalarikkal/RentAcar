@@ -14,7 +14,6 @@ export const createDealer = async (req, res, next) => {
         const profilePic = req.file;
 
         // const uploadResult = await cloudinaryInstance.uploader.upload(req.file.path).catch((error)=>{
-        //     console.log(error);
             
         // })
 
@@ -37,7 +36,6 @@ export const createDealer = async (req, res, next) => {
             try {
                 imageUrlpro = await imageUploadCloudinary(profilePic.path);
             } catch (error) {
-                console.log(error);
                 return res.status(500).json({ success: false, message: "Image upload failed" });
             }
         }
@@ -110,7 +108,6 @@ export const dealerLogin = async(req, res, next) => {
             secure: true,
             httpOnly: true,
         });
-        console.log(token)
         res.status(200).json({ success: true, message: "Dealer logged in successfully", role:dealerExist.role, userData:dealerExist, token : token });
     } catch (error) {
         res.status(error.status || 500).json({ success: false, message: error.message || "Internal server error" });
@@ -121,7 +118,6 @@ export const dealerLogin = async(req, res, next) => {
 export const dealerLogout = async(req, res, next) => {
     try {
         res.clearCookie("token");
-        console.log(token)
         res.status(200).json({ success: true, message: "Dealer logged out successfully" });
     } catch (error) {
         res.status(error.status || 500).json({ success: false, message: error.message || "Internal server error" });
@@ -205,7 +201,6 @@ export const getDealerInventory = async(req, res, next)=>{
 
        
         const id = req.user.id
-        console.log("dealerssssss",req.user)
 
         const cars = await Car.find({ dealer: id })
         .populate('dealer', 'name location phone email') 
@@ -226,7 +221,6 @@ export const getDealerInventory = async(req, res, next)=>{
 export const getDealerNotifications = async (req, res) => {
     try {
       const dealerId = req.user.id; 
-      console.log(dealerId)
       const notifications = await Notification.find({ dealer: dealerId }).sort({ createdAt: -1 }).populate('reservedby', 'name email');
       res.json({ success: true, data: notifications });
     } catch (error) {

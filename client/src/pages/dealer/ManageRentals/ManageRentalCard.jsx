@@ -9,7 +9,6 @@ const ManageRentalCard = ({ reservation }) => {
     setFormActive(true);
   };
 
-  console.log("reservation", reservation);
   
 
   return (

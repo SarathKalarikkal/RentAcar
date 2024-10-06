@@ -1,5 +1,4 @@
 export const convertToISODate = (dateStr) => {
-    console.log("Input date string:", dateStr);
 
     if (!dateStr || dateStr.length !== 10) {
         throw new Error("Invalid date string");

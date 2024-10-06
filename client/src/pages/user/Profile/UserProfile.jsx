@@ -20,12 +20,10 @@ const UserProfile = () => {
   const Createdate = user?.updatedAt;
   const formattedDate = formatDate(Createdate);
 
-  console.log("ghafsdghsafdgh",user);
   
 
   const fetchUserData =async()=>{
      const response = await axiosInstance.get(`/profile`)
-     console.log("The res", response)
   }
 
   // Set form values on load for editing

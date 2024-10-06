@@ -15,7 +15,6 @@ const UserNotification = () => {
       try {
         const response = await axiosInstance.get('/user/notifications');
         dispatch(setNotificationList(response.data.data));
-        console.log("notification", response.data)
       } catch (error) {
         console.error('Error fetching user notifications', error);
       }

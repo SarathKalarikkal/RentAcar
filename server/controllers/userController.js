@@ -15,14 +15,6 @@ export const userCreate = async (req, res, next) => {
             const { name, email, password, role, location, about, phone } = req.body;
             const profilePic = req.file;
 
-            // console.log(req.file);
-            
-
-            // const uploadResult = await cloudinaryInstance.uploader.upload(req.file.path).catch((error)=>{
-            //     console.log(error);
-                
-            // })
-            // console.log(uploadResult.url)
 
 
             if (!name || !email || !password || !role || !location || !about || !phone) {
@@ -45,13 +37,12 @@ export const userCreate = async (req, res, next) => {
             try {
                 imageUrlpro = await imageUploadCloudinary(profilePic.path);
             } catch (error) {
-                console.log(error);
                 return res.status(500).json({ success: false, message: "Image upload failed" });
             }
         }
 
             // Create new user
-            // Create new user
+          
         const newUser = new User({
             name,
             email,
@@ -69,7 +60,11 @@ export const userCreate = async (req, res, next) => {
             // Create token
             const token = generateToken(id, email, UserRole);
 
-            res.cookie("token", token);
+            res.cookie("token", token,{
+                sameSite: "None",
+                secure: true,
+                httpOnly: true,
+            });
             return res.status(201).json({ success: true, message: "User created successfully", userData : newUser,token:token });
         
     } catch (error) {
@@ -186,7 +181,6 @@ export const userUpdate = async (req, res) => {
         // Check if a file was uploaded
         if (req.file) {
             imageUrl = await imageUploadCloudinary(req.file.path);
-            console.log(imageUrl);
 
             // Add profilePic to updateData if imageUrl exists
             updateData.profilePic = imageUrl;

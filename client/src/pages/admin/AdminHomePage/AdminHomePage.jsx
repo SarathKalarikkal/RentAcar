@@ -6,6 +6,7 @@ import './style.css';
 import axiosInstance from "../../../config/axiosInstance";
 
 import AdminLoader from '../../../components/Loader/AdminLoader';
+import { Link } from 'react-router-dom';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -19,7 +20,7 @@ const AdminHomePage = () => {
         datasets: [
             {
                 label: 'Count',
-                data: [0, 0, 0], // Initial values
+                data: [0, 0, 0], 
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1,
@@ -93,6 +94,41 @@ const AdminHomePage = () => {
                 </div>
                 <div className="admin-bottom">
                     <div className="container">
+                        <div className="row">
+                            <div className="col-md-4">
+                               <Link to={'/admin/alluser'}>
+                               <div className="dash-card">
+                                     <div className='left'>
+                                       <i className='bi bi-people-fill'></i>
+                                       <h6>Users</h6>
+                                     </div>
+                                     <span>{usersCount}</span>
+                                </div>
+                               </Link>
+                            </div>
+                            <div className="col-md-4">
+                                <Link to={'/admin/alldealers'}>
+                                <div className="dash-card">
+                                     <div className='left'>
+                                        <i className='bi bi-person-fill'></i>
+                                        <h6>Dealers</h6>
+                                     </div>
+                                     <span>{dealersCount}</span>
+                                </div>
+                                </Link>
+                            </div>
+                            <div className="col-md-4">
+                               <Link to={'/admin/allCars'}>
+                               <div className="dash-card">
+                                      <div className='left'>
+                                        <i className='bi bi-car-front-fill'></i>
+                                        <h6>Cars</h6>
+                                      </div>
+                                     <span>{carsCount}</span>
+                                </div>
+                               </Link>
+                            </div>
+                        </div>
                         <div className="row">
                             <div className="col">
                                 <div className="dashboard-card">

@@ -10,7 +10,6 @@ export const authDealer = (req, res, next) => {
 
         const tokenVerified = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
-        console.log("token verified====", tokenVerified);
 
         if (!tokenVerified) {
             return res.status(401).json({ success: false, message: "user not authenticated" });
@@ -25,7 +24,6 @@ export const authDealer = (req, res, next) => {
         
         next();
     } catch (error) {
-        console.log(error);
         return res.status(500).json({ success: false, message: "Internal server error" });
     }
 };

@@ -18,7 +18,6 @@ const Rentals = () => {
   const fetchDealerReservation =async()=>{
    const response = await axiosInstance.get('/reservation/dealer-reservations')
    const resevationData =  response.data.data
-   console.log("deale reserw", resevationData);
    dispatch(setDealerReservationList(resevationData))
    setLoading(false)
   }
@@ -27,7 +26,6 @@ useEffect(()=>{
    fetchDealerReservation()
 },[])
 
-console.log("asdasd",dealerReservationList);
 
 if (loading) {
   return <Loader/>;

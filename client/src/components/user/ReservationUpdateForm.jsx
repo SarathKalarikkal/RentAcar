@@ -20,13 +20,11 @@ const ReservationUpdateForm = ({ setFormActive, carDetail, reservation }) => {
     }, [carDetail, setValue]);
 
     const submitHandler = async (data) => {
-        console.log("Form data:", data);
     
         try {
             const startDateISO = new Date(data.startDate).toISOString();
             const endDateISO = new Date(data.endDate).toISOString();
     
-            console.log("Converted dates:", { startDateISO, endDateISO });
     
             // Send PUT request to update reservation
             const response = await axiosInstance.put(`/reservation/${reservation._id}`, {
@@ -36,7 +34,6 @@ const ReservationUpdateForm = ({ setFormActive, carDetail, reservation }) => {
                 rentPerHour: data.rentPerHour,
             });
     
-            console.log(response.data.data);
     
             if (response.data.success) {
                 toast.success('Reservation updated successfully');

@@ -20,11 +20,9 @@ export const authUser = (req, res, next) => {
 
         req.user = tokenVerified;
 
-        console.log(req.user)
 
         next();
     } catch (error) {
-        console.log(error);
         return res.status(500).json({ success: false, message: "Internal server error" });
     }
 };

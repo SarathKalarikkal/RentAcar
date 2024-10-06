@@ -12,7 +12,6 @@ export const userLogin = async (data) => {
         return response?.data;
     } catch (error) {
         toast.error("Log-in Success");
-        console.log(error);
     }
 };
 export const userLogout = async () => {
@@ -24,7 +23,6 @@ export const userLogout = async () => {
         return response?.data;
     } catch (error) {
         toast.error("Log-out Failed ");
-        console.log(error);
     }
 };
 
@@ -35,11 +33,9 @@ export const userLogout = async () => {
 //             method: "GET",
 //         });
 
-//         console.log(response, "====response");
 
 //         return response?.data;
 //     } catch (error) {
-//         console.log("error fetching user data");
 //         toast.error("error fetching user data");
 //     }
 // };

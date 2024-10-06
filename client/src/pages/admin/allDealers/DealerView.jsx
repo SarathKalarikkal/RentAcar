@@ -3,7 +3,6 @@ import "../style.css"
 
 const DealerView = ({closeView, dealer}) => {
 
-  console.log(dealer)
   return (
     <div className="dealer-popup-overlay" onClick={closeView}>
     <div className="dealer-popup-content" onClick={(e) => e.stopPropagation()}>

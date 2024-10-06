@@ -39,7 +39,6 @@ const ReservationForm = ({ setFormActive, carDetail }) => {
                 rentPerHour: data.rentPerHour,
                 totalRate 
             });
-      console.log("respose", response);
       
             if (response.data.success) {
                 toast.success('Reservation created successfully');

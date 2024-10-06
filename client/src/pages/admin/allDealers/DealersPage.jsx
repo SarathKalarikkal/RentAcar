@@ -12,7 +12,6 @@ const DealersPage = () => {
   const fetchAlldealers = async()=>{
       const response = await axiosInstance.get('/admin/dealers')
       const dealersData = response.data.data
-      console.log("all dealers for admin",dealersData);
       setAllDealers(dealersData)
       setLoading(false)
   }

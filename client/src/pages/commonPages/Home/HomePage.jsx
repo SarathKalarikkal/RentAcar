@@ -15,16 +15,13 @@ const {carList} = useSelector((state) => state.car);
 const dispatch = useDispatch()
 
 
-console.log(carList)
 
 const fetchCars = async()=>{
   try {
       const response = await axiosInstance.get('/car/list')
       const CarsData = response.data
       dispatch(setCarList(CarsData.data))
-      console.log("cardata",CarsData.data)
   } catch (error) {
-    console.loga(error)
   }
 }
 
@@ -32,7 +29,7 @@ useEffect(()=>{
   fetchCars()
 }, [])
 
-console.log("latest",carList)
+
 
 const generateCarouselItems = (items) => {
   const chunkSize = 3;
@@ -191,7 +188,7 @@ const generateCarouselItems = (items) => {
 
            <div className="newsletter-head">
               <h2>LOOKING FOR A BETTER DRIVE</h2>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae assumenda a incidunt. Sed, eum iste!</p>
+              <p>Subscribe to our application for best deals and drives and get faster access to offers.</p>
            </div>
            
               <form>

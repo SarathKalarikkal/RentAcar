@@ -13,7 +13,6 @@ const UsersPage = () => {
 const fetchAllUsers = async()=>{
     const response = await axiosInstance.get('/admin/allusers')
     const usersData = response.data.data
-    console.log("all users for admin",usersData);
     setAllUsers(usersData)
     setLoading(false)
 }

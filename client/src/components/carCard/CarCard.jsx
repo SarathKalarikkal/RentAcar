@@ -12,7 +12,7 @@ const CarCard = ({car}) => {
 
 const userInfo = JSON.parse(localStorage.getItem('userInfo'))
 
-console.log("usersssss", userInfo?.role)
+
 let url
 
 if(userInfo?.role === 'user'){

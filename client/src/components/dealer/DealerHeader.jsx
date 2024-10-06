@@ -13,7 +13,7 @@ const DealerHeader = () => {
     const [theme, setTheme] = useState(true)
 
     const dealerNotificationList = useSelector((state)=>state.notifications.dealerNotificationList)
-    console.log("noti", dealerNotificationList.length)
+   
 
     const handleTheme =()=>{
      const body =  document.querySelector('body')

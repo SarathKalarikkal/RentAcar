@@ -14,7 +14,6 @@ const CarsPage = () => {
         try {
             const response = await axiosInstance.get('/admin/allcars');
             const carsData = response.data.data;
-            console.log("all cars for admin", carsData);
             setAllCars(carsData);
             setFilteredCars(carsData); 
             setLoading(false)

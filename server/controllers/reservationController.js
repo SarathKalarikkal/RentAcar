@@ -11,7 +11,6 @@ export const createReservation = async (req, res, next) => {
       const { carId, startDate, endDate, rentPerHour,totalRate } = req.body;
       const userId = req.user.id;
 
-      console.log("userid",userId)
 
       // Ensure that the input dates are in YYYY-MM-DD format
       const start = new Date(startDate);
@@ -29,7 +28,6 @@ export const createReservation = async (req, res, next) => {
          return res.status(400).json({ success: false, message: "All fields are required" });
       }
 
-      console.log("carId", carId);
       const car = await Car.findById(carId);
 
       
@@ -106,7 +104,6 @@ export const approveReservation  = async(req, res, next)=>{
          return res.status(404).json({ success: false, message: "Car not found" });
       }
 
-     console.log("reservation",reservation, car)
 
      const userNotification = new Notification({
       user: reservation.user._id,

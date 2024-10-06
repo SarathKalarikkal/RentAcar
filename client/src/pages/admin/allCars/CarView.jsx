@@ -4,7 +4,6 @@ import './style.css';
 const CarView = ({ closeView, car }) => {
   if (!car) return null;
 
-  console.log("car", car);
   
 
   return (

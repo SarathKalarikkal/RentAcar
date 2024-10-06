@@ -40,11 +40,9 @@ export const createCar = async (req, res, next) => {
     // Upload an image
     if (req.file) {
       imageUrl = await imageUploadCloudinary(req.file.path);
-      console.log(imageUrl);
       
   }
 
-    console.log('IMAGE URLS', imageUrl);
 
     // Create new car
     const newCar = new Car({
@@ -154,7 +152,6 @@ export const updateCar = async (req, res, next) => {
     } = req.body;
 
     // Log incoming data for debugging
-    console.log("Incoming data:", req.body);
 
     // Perform the update operation
     const result = await Car.updateOne(

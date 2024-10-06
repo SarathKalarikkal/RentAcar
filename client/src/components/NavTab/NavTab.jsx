@@ -16,10 +16,8 @@ const VehicleTabs = ({ carDetail }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data)
     try {
       const response = await axiosInstance.post(`/review/create/${carDetail._id}`, data);
-      console.log(response.data);
       toast.success(response.data.message)
     } catch (error) {
       toast.error(response.data.message)
@@ -31,7 +29,6 @@ const VehicleTabs = ({ carDetail }) => {
     const fetchReviews = async () => {
       try {
         const response = await axiosInstance.get(`/review/car/${carDetail._id}`);
-        console.log(response.data);
         setReviews(response.data.data);
        
       } catch (error) {

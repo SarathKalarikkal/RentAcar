@@ -14,7 +14,6 @@ const CarList = () => {
   const {carList, filteredData} = useSelector((state) => state.car);
   const [loading, setLoading] = useState(true);
 
-  console.log("home fikter", filteredData)
 
   const handleViewMod = () => {
     setBoxView(!boxView);
@@ -45,7 +44,6 @@ const CarList = () => {
       const response = await axiosInstance.get(`/car/list?${queryString}`);
       const filteredCars = response.data;
       dispatch(setCarList(filteredCars.data));
-      console.log("Filtered data:", filteredCars);
     } catch (error) {
       console.error('Error:', error);
     }

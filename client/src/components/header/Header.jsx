@@ -21,7 +21,6 @@ const handleTheme =()=>{
 }
 
 const location = useLocation()
-console.log(location.pathname);
 
 const activeLink = (path)=>{
   return location.pathname === path

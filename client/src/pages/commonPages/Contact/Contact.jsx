@@ -10,10 +10,9 @@ const Contact = () => {
   const onSubmit = async (data) => {
     try {
       const response = await axiosInstance.post("/message/create", data);
-      console.log(response);
 
       toast.success(response.data.message);
-      reset(); // Reset the form fields after submission
+      reset(); 
     } catch (error) {
       toast.error("Something went wrong. Please try again.");
     }
@@ -91,9 +90,7 @@ const Contact = () => {
               <div className="contact-msg">
                 <h2>Send a Message</h2>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Corporis, adipisci.onsectetur adipisicing elit. Corporis,
-                  adipisci.
+                  Message to the admin for your queries and recomentations. Get the response faster.
                 </p>
 
                 <form onSubmit={handleSubmit(onSubmit)}>

@@ -13,7 +13,6 @@ export const dealerLogin = async (data) => {
         return response?.data;
     } catch (error) {
         toast.error("Log-in Success");
-        console.log(error);
     }
 };
 export const dealerLogout = async () => {
@@ -25,7 +24,6 @@ export const dealerLogout = async () => {
         return response?.data;
     } catch (error) {
         toast.error("Log-out Failed ");
-        console.log(error);
     }
 };
 
@@ -36,11 +34,9 @@ export const dealerLogout = async () => {
 //             method: "GET",
 //         });
 
-//         console.log(response, "====response");
 
 //         return response?.data;
 //     } catch (error) {
-//         console.log("error fetching dealer data");
 //         toast.error("error fetching dealer data");
 //     }
 // };

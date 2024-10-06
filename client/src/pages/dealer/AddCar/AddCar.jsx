@@ -61,7 +61,6 @@ const AddCar = () => {
         },
       });
   
-      console.log("Successfully uploaded");
       toast.success(response.data.message);
 
       setTimeout(()=>{

@@ -130,7 +130,7 @@
     color: var(--text-color);
 }
 .work-box p{
-    color: var(--text-color);
+    color: var(--text-sec-color);
 }
 
 .carousel-indicators {
@@ -147,7 +147,9 @@
     margin-left: 15%;
     list-style: none;
 }
-
+.carousel-indicators [data-bs-target]{
+    background-color: var(--text-color)!important;
+}
 
 
 @media screen and (min-width: 1200px) {

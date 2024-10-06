@@ -3,9 +3,7 @@ import React from 'react'
 
 const AdminRentalCard = ({reservation}) => {
 
-  console.log("asdsadsdsadasd",reservation);
-
-  
+ 
   
   return (
     <>

@@ -14,14 +14,12 @@ function MyRentals() {
   const userReservationList = useSelector((state) => state.reservation.userReservationList);
   const dispatch = useDispatch()
   // const [loading, setLoading] = useState(true);
+  const [confirmDlete, setConfirmDelete]=useState(false)
 
-
-  console.log("iiiiiiiii",userReservationList);
   
   const fetchReservation = async()=>{
     const response = await axiosInstance.get('/reservation/user/reservations')
     const reservationData = response.data.data
-    console.log("reservation",reservationData);
     dispatch(setUserReservationList(reservationData))
     // setLoading(false)
   }
@@ -39,6 +37,7 @@ const handleDelete = async (reservationId) => {
     if (response.status === 200) {
       dispatch(deleteUserReservation(reservationId));
       toast.success(response.data.message)
+      setConfirmDelete(false)
     } else {
       console.error('Failed to delete reservation:', response.statusText);
       toast.error(response.data.message)
@@ -50,9 +49,6 @@ const handleDelete = async (reservationId) => {
 };
 
 
-// if (loading) {
-//   return <Loader/>;
-// }
 
 
   return (
@@ -76,6 +72,8 @@ const handleDelete = async (reservationId) => {
                       reservation={reservation}
                       onDelete={() => handleDelete(reservation._id)}
                     fetchReservation={fetchReservation}
+                    confirmDlete={confirmDlete}
+                    setConfirmDelete={setConfirmDelete}
                     />
                   ))
                 ) : (

@@ -12,7 +12,6 @@ const AllRentalsPage = () => {
   const fetchAllreservations = async()=>{
       const response = await axiosInstance.get('/admin/reservations')
       const reservationData = response.data.data
-      console.log("all dealers for admin",reservationData);
       setAllReservations(reservationData)
       setLoading(false)
   }

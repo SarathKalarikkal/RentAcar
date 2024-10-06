@@ -13,7 +13,6 @@ const UserHeader = () => {
   const [theme, setTheme] = useState(true)
 
   const notificationList = useSelector((state)=>state.notifications.notificationList)
-  console.log("noti", notificationList.length)
 
 const handleTheme =()=>{
  const body =  document.querySelector('body')
@@ -28,7 +27,6 @@ const handleTheme =()=>{
 }
 
 const location = useLocation()
-console.log(location.pathname);
 
 const activeLink = (path)=>{
   return location.pathname === path

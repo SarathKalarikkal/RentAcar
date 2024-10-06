@@ -26,3 +26,41 @@
 .card-body {
     padding: 20px;
 }
+
+.dash-card{
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.dash-card:hover{
+    border:1px solid var(--border-color);
+}
+.dash-card .left{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.dash-card .left h6{
+   padding: 0;
+   color: var(--text-color);
+   margin: 0;
+}
+.dash-card .left i{
+    background-color: var(--brand-color);
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.dash-card span{
+    background-color: tex;
+    color: var(--text-color);
+    padding: 5px 8px;
+    font-size: 20px;
+    border-radius: 5px;
+}
