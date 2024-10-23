@@ -21,7 +21,10 @@ const DealerNotification = () => {
     };
 
     fetchNotifications();
-  }, []);
+  }, [notifications]);
+
+  console.log("notifications",notifications);
+  
 
   const handleDeleteNotification = async (id) => {
     try {

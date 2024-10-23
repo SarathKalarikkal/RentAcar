@@ -141,7 +141,7 @@ if (loading) {
             <div className="col-12 col-md-4">
               <div className="dealer-info-sec">
                 <div className="payment-sec">
-                  <div className="right-header">PRICE : {carDetail?.rentPerHour} RS</div>
+                  <div className="right-header">PRICE : {carDetail?.rentPerHour} RS/hr</div>
                   <div className="payment-available">
                     <img
                       className="paypal"

@@ -54,14 +54,14 @@
 .notifi-span.visible{
    position: absolute;
    top: 0;
-   right: 25px;
+   right: -9px;
    background: rgb(254, 28, 28);
    color: white;
    padding: 3px;
    width: 15px;
    height: 15px;
    border-radius: 50px;
-   font-size: 14px;
+   font-size: 11px;
    display: flex;
    align-items: center;
    justify-content: center;

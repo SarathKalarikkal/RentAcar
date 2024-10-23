@@ -187,6 +187,10 @@
    border-radius: 5px;
 }
 
+.cfm-card p{
+   color: var(--text-color);
+}
+
 @media screen and (max-width:768px){
    .rented-box-below {
       display: flex;
